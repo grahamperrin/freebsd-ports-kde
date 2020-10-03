@@ -1,13 +1,13 @@
 # Created by: Martin Matuska <mm@FreeBSD.org>
 # $FreeBSD$
 
-PORTREVISION=	2
-PKGNAMESUFFIX=	-${OCV_SLAVE}
+PORTREVISION=	0
+PKGNAMESUFFIX=	-${_OCV_PACKAGE}
 
 COMMENT=	OpenCV core libraries
 
-OCV_SLAVE=	core
-OCV_CORE=	yes
+_OCV_PACKAGE=	core
+
 MASTERDIR=	${.CURDIR:H}/opencv
 PLIST=		${.CURDIR}/pkg-plist
 
