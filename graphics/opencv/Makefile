@@ -30,7 +30,22 @@ SHEBANG_FILES=	cmake/templates/setup_vars_linux.sh.in
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 
+PLIST_SUB=	OCV_VERSION=${DISTVERSION} \
+		OCV_SHLIB_VERSION=${DISTVERSION:R}
+
 # Subpackage handling
+_disabled_OCV_MODULES=	aruco bgsegm bioinspired ccalib cnn_3dobj \
+			cudaarithm cudabgsegm cudacodec cudafeatures2d \
+			cudafilters cudaimgproc cudalegacy cudaobjdetect \
+			cudaoptflow cudastereo cudawarping cudev \
+			cvv datasets dnn_objdetect dnns_easily_fooled \
+			dpm face freetype fuzzy hdf hfs img_hash \
+			line_descriptor matlab optflow ovis phase_unwrapping \
+			plot quality reg rgbd saliency sfm shape stereo \
+			structured_light superres surface_matching text \
+			tracking videostab viz xfeatures2d ximgproc \
+			xobjdetect xphoto
+
 _default_LIB_DEPENDS=	libtesseract.so:graphics/tesseract \
 			libavcodec.so:multimedia/ffmpeg \
 			libIlmImf-2_5.so:graphics/openexr \
@@ -40,6 +55,9 @@ _default_LIB_DEPENDS=	libtesseract.so:graphics/tesseract \
 			libtiff.so:graphics/tiff \
 			libwebp.so:graphics/webp \
 			libopencv_core.so:graphics/opencv-core
+_default_OCV_MODULES=	apps calib3d contrib dnn features2d flann gapi \
+			highgui imgcodecs ml objdetect photo stitching \
+			ts video videoio
 
 _core_OCV_MODULES=	core imgproc
 
@@ -52,14 +70,14 @@ _java_USES=		python:build
 _java_LIB_DEPENDS=	libopencv_ml.so:graphics/opencv
 _java_OCV_MODULES=	java
 
-_OCV_PACKAGES=		default core python java
+_OCV_PACKAGES=		default core python java disabled
 
 # Main package
 _OCV_PACKAGE?=		default
 
 # Disable the modules of the other subpackages
 .  for _package in ${_OCV_PACKAGES:N${_OCV_PACKAGE}}
-.    for _ocv_module in ${_${package}_OCV_MODULES}
+.    for _ocv_module in ${_${_package}_OCV_MODULES}
 CMAKE_ARGS+=	-DBUILD_opencv_${_ocv_module}:BOOL=FALSE
 .    endfor
 .  endfor
