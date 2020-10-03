@@ -33,6 +33,8 @@ USE_LDCONFIG=	yes
 PLIST_SUB=	OCV_VERSION=${DISTVERSION} \
 		OCV_SHLIB_VERSION=${DISTVERSION:R}
 
+CMAKE_ON=	OPENCV_GENERATE_PKGCONFIG
+
 # Subpackage handling
 _disabled_OCV_MODULES=	aruco bgsegm bioinspired ccalib cnn_3dobj \
 			cudaarithm cudabgsegm cudacodec cudafeatures2d \
@@ -44,7 +46,8 @@ _disabled_OCV_MODULES=	aruco bgsegm bioinspired ccalib cnn_3dobj \
 			plot quality reg rgbd saliency sfm shape stereo \
 			structured_light superres surface_matching text \
 			tracking videostab viz xfeatures2d ximgproc \
-			xobjdetect xphoto
+			xobjdetect xphoto \
+			python2 js
 
 _default_LIB_DEPENDS=	libtesseract.so:graphics/tesseract \
 			libavcodec.so:multimedia/ffmpeg \
@@ -74,6 +77,8 @@ _OCV_PACKAGES=		default core python java disabled
 
 # Main package
 _OCV_PACKAGE?=		default
+
+CMAKE_ARGS+=	-DPORTS_OCV_PACKAGE:STRING=${_OCV_PACKAGE}
 
 # Disable the modules of the other subpackages
 .  for _package in ${_OCV_PACKAGES:N${_OCV_PACKAGE}}

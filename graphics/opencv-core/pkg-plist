@@ -137,6 +137,7 @@ lib/libopencv_core.so.%%OCV_VERSION%%
 lib/libopencv_imgproc.so
 lib/libopencv_imgproc.so.%%OCV_SHLIB_VERSION%%
 lib/libopencv_imgproc.so.%%OCV_VERSION%%
+libdata/pkgconfig/opencv4-core.pc
 %%DATADIR%%4/haarcascades/haarcascade_eye.xml
 %%DATADIR%%4/haarcascades/haarcascade_eye_tree_eyeglasses.xml
 %%DATADIR%%4/haarcascades/haarcascade_frontalcatface.xml
