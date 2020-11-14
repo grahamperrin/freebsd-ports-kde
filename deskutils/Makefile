@@ -128,7 +128,6 @@
     SUBDIR += kdeconnect-kde
     SUBDIR += kdepim
     SUBDIR += kdepim-addons
-    SUBDIR += kdepim-apps-libs
     SUBDIR += kdepim-runtime
     SUBDIR += keditbookmarks
     SUBDIR += kfind

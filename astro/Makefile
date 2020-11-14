@@ -29,7 +29,6 @@
     SUBDIR += josm
     SUBDIR += kstars
     SUBDIR += libgal
-    SUBDIR += libkgeomap
     SUBDIR += libnova
     SUBDIR += libosmium
     SUBDIR += libosmpbf
