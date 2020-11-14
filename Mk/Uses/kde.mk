@@ -62,9 +62,9 @@ KDE_FRAMEWORKS_VERSION?=	5.75.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
 # Current KDE applications.
-KDE_APPLICATIONS_VERSION?=	20.08.3
-KDE_APPLICATIONS_SHLIB_VER?=	5.15.3
-KDE_APPLICATIONS_BRANCH?=	stable
+KDE_APPLICATIONS_VERSION?=	20.11.80
+KDE_APPLICATIONS_SHLIB_VER?=	5.15.80
+KDE_APPLICATIONS_BRANCH?=	unstable
 # Upstream moves old software to Attic/. Specify the newest applications release there.
 # Only the major version is used for the comparison.
 _KDE_APPLICATIONS_ATTIC_VERSION=	17.08.3
@@ -175,7 +175,7 @@ PLIST_SUB+=		KDE_PLASMA_VERSION="${KDE_PLASMA_VERSION}" \
 
 _USE_KDE_BOTH=		akonadi attica libkcddb libkcompactdisc libkdcraw libkdegames \
 			libkeduvocdocument libkexiv2 libkipi libksane okular \
-			baloo baloo-widgets kate marble
+			baloo baloo-widgets kate marble kpublictransport
 
 # List of components of the KDE Frameworks distribution.
 # The *_TIER<n> variables are internal, primarily for checking
@@ -231,7 +231,7 @@ _USE_KDEPIM5_ALL=	akonadicontacts akonadiimportwizard akonadimime akonadinotes \
 			calendarcore calendarsupport calendarutils \
 			contacts eventviews gapi grantleetheme \
 			gravatar identitymanagement imap \
-			incidenceeditor kdepim-addons kdepim-apps-libs \
+			incidenceeditor kdepim-addons \
 			kdepim-runtime5 kitinerary kontactinterface kpkpass \
 			ksmtp ldap libkdepim libkleo libksieve mailcommon \
 			mailimporter mailtransport mbox messagelib \
@@ -661,9 +661,6 @@ kde-kdav_LIB=			libKF5DAV.so
 kde-kdepim-addons_PORT=	deskutils/kdepim-addons
 kde-kdepim-addons_PATH=	${KDE_PREFIX}/lib/contacteditor/editorpageplugins/cryptopageplugin.so
 
-kde-kdepim-apps-libs_PORT=	deskutils/kdepim-apps-libs
-kde-kdepim-apps-libs_LIB=	libKF5KaddressbookGrantlee.so
-
 kde-kdepim-runtime5_PORT=	deskutils/kdepim-runtime
 kde-kdepim-runtime5_PATH=	${KDE_PREFIX}/bin/gidmigrator
 
@@ -792,6 +789,9 @@ kde-libksane5_LIB=		libKF5Sane.so
 
 kde-marble5_PORT=		astro/marble
 kde-marble5_LIB=		libmarblewidget-qt5.so
+
+kde-kpublictransport_PORT=	devel/kpublictransport
+kde-kpublictransport_LIB=	libKPublicTransport.so
 
 kde-okular5_PORT=		graphics/okular
 kde-okular5_LIB=		libOkular5Core.so
