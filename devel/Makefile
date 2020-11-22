@@ -262,7 +262,6 @@
     SUBDIR += byacc
     SUBDIR += byaccj
     SUBDIR += bzr
-    SUBDIR += bzr-fastimport
     SUBDIR += c2mdoc
     SUBDIR += caf
     SUBDIR += calibrator
@@ -861,6 +860,7 @@
     SUBDIR += gprbuild
     SUBDIR += gputils
     SUBDIR += gradle
+    SUBDIR += gradle-completion
     SUBDIR += gradle4
     SUBDIR += gradle5
     SUBDIR += gradle62
@@ -1195,6 +1195,7 @@
     SUBDIR += libhoard
     SUBDIR += libhtp
     SUBDIR += libhyve-remote
+    SUBDIR += libibuddy
     SUBDIR += libical
     SUBDIR += libindicator
     SUBDIR += libinotify
@@ -1330,6 +1331,7 @@
     SUBDIR += libunicode
     SUBDIR += libuninum
     SUBDIR += libunistring
+    SUBDIR += libunit
     SUBDIR += libunwind
     SUBDIR += libuutil
     SUBDIR += libuv
@@ -3413,6 +3415,7 @@
     SUBDIR += p5-Test-Signature
     SUBDIR += p5-Test-Simple
     SUBDIR += p5-Test-Singleton
+    SUBDIR += p5-Test-Snapshot
     SUBDIR += p5-Test-Spec
     SUBDIR += p5-Test-Spelling
     SUBDIR += p5-Test-Strict
@@ -4008,7 +4011,6 @@
     SUBDIR += py-QtPy
     SUBDIR += py-RPyC
     SUBDIR += py-SymbolType
-    SUBDIR += py-ToscaWidgets
     SUBDIR += py-XStatic
     SUBDIR += py-XStatic-Angular
     SUBDIR += py-XStatic-Angular-Bootstrap
@@ -4223,9 +4225,9 @@
     SUBDIR += py-cachetools
     SUBDIR += py-cachetools3
     SUBDIR += py-cachy
-    SUBDIR += py-calendar
     SUBDIR += py-canonicaljson
     SUBDIR += py-capstone
+    SUBDIR += py-case
     SUBDIR += py-castellan
     SUBDIR += py-castellan1
     SUBDIR += py-cbor
@@ -4347,13 +4349,13 @@
     SUBDIR += py-dirspec
     SUBDIR += py-dis3
     SUBDIR += py-distlib
-    SUBDIR += py-distorm
     SUBDIR += py-distributed
     SUBDIR += py-dj31-django-rq
     SUBDIR += py-django-rq
     SUBDIR += py-docker-py
     SUBDIR += py-dockerpty
     SUBDIR += py-docopt
+    SUBDIR += py-doctest-ignore-unicode
     SUBDIR += py-dogpile.cache
     SUBDIR += py-doit
     SUBDIR += py-dotted
@@ -4380,7 +4382,6 @@
     SUBDIR += py-extras
     SUBDIR += py-extremes
     SUBDIR += py-fabric
-    SUBDIR += py-fabric1
     SUBDIR += py-fabric3
     SUBDIR += py-factory-boy
     SUBDIR += py-fam
@@ -4928,6 +4929,7 @@
     SUBDIR += py-pytest-localserver
     SUBDIR += py-pytest-mock
     SUBDIR += py-pytest-mutagen
+    SUBDIR += py-pytest-mypy
     SUBDIR += py-pytest-pep8
     SUBDIR += py-pytest-pycodestyle
     SUBDIR += py-pytest-randomly
@@ -5002,7 +5004,6 @@
     SUBDIR += py-rauth
     SUBDIR += py-raven
     SUBDIR += py-rchitect
-    SUBDIR += py-rcsparse
     SUBDIR += py-readme_renderer
     SUBDIR += py-rebulk
     SUBDIR += py-rednose
@@ -5051,6 +5052,7 @@
     SUBDIR += py-selectors2
     SUBDIR += py-semantic_version
     SUBDIR += py-semver
+    SUBDIR += py-sentry-sdk
     SUBDIR += py-serializable
     SUBDIR += py-serpent
     SUBDIR += py-setproctitle
@@ -5179,7 +5181,6 @@
     SUBDIR += py-urwidtrees
     SUBDIR += py-user_agents
     SUBDIR += py-userpath
-    SUBDIR += py-utils
     SUBDIR += py-uvloop
     SUBDIR += py-validators
     SUBDIR += py-validictory
@@ -5191,6 +5192,7 @@
     SUBDIR += py-versiontools
     SUBDIR += py-vine
     SUBDIR += py-virtualenv
+    SUBDIR += py-virtualenv-api
     SUBDIR += py-virtualenv-clone
     SUBDIR += py-virtualenvwrapper
     SUBDIR += py-visitor
@@ -5295,7 +5297,6 @@
     SUBDIR += pylint1
     SUBDIR += pyobfuscate
     SUBDIR += pyotherside-qt5
-    SUBDIR += pyrex
     SUBDIR += pyside2
     SUBDIR += pyside2-tools
     SUBDIR += pystring
@@ -5475,6 +5476,7 @@
     SUBDIR += rubygem-aws-sdk-applicationdiscoveryservice
     SUBDIR += rubygem-aws-sdk-applicationinsights
     SUBDIR += rubygem-aws-sdk-appmesh
+    SUBDIR += rubygem-aws-sdk-appregistry
     SUBDIR += rubygem-aws-sdk-appstream
     SUBDIR += rubygem-aws-sdk-appsync
     SUBDIR += rubygem-aws-sdk-athena
@@ -5560,6 +5562,7 @@
     SUBDIR += rubygem-aws-sdk-glacier
     SUBDIR += rubygem-aws-sdk-globalaccelerator
     SUBDIR += rubygem-aws-sdk-glue
+    SUBDIR += rubygem-aws-sdk-gluedatabrew
     SUBDIR += rubygem-aws-sdk-greengrass
     SUBDIR += rubygem-aws-sdk-groundstation
     SUBDIR += rubygem-aws-sdk-guardduty
@@ -6106,7 +6109,9 @@
     SUBDIR += rubygem-grape140
     SUBDIR += rubygem-grape_logging
     SUBDIR += rubygem-graphiql-rails
+    SUBDIR += rubygem-graphlient
     SUBDIR += rubygem-graphql
+    SUBDIR += rubygem-graphql-client
     SUBDIR += rubygem-graphql-docs
     SUBDIR += rubygem-grit
     SUBDIR += rubygem-grpc-google-iam-v1
