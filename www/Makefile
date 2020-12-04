@@ -139,6 +139,7 @@
     SUBDIR += emacs-w3m
     SUBDIR += encode-explorer
     SUBDIR += envoy
+    SUBDIR += eolie
     SUBDIR += ephemera
     SUBDIR += epiphany
     SUBDIR += erlang-cowboy
@@ -321,6 +322,7 @@
     SUBDIR += lua-resty-lrucache
     SUBDIR += luakit
     SUBDIR += luakit-devel
+    SUBDIR += lychee
     SUBDIR += lynx
     SUBDIR += lynx-current
     SUBDIR += madsonic
@@ -1852,7 +1854,6 @@
     SUBDIR += rubygem-cuba
     SUBDIR += rubygem-d3_rails
     SUBDIR += rubygem-d3_rails-rails4
-    SUBDIR += rubygem-dashing
     SUBDIR += rubygem-davclient
     SUBDIR += rubygem-deckar01-task_list
     SUBDIR += rubygem-domainatrix
@@ -1882,7 +1883,6 @@
     SUBDIR += rubygem-gitlab-flowdock-git-hook
     SUBDIR += rubygem-gitlab-gollum-lib
     SUBDIR += rubygem-gitlab-gollum-rugged_adapter
-    SUBDIR += rubygem-gitlab-grack
     SUBDIR += rubygem-gitlab-puma
     SUBDIR += rubygem-gitlab-puma_worker_killer
     SUBDIR += rubygem-gitlab-turbolinks-classic
@@ -2049,7 +2049,6 @@
     SUBDIR += rubygem-redis-rails-rails50
     SUBDIR += rubygem-redis-rails-rails52
     SUBDIR += rubygem-redis-rails-rails60
-    SUBDIR += rubygem-redmine_acts_as_taggable_on
     SUBDIR += rubygem-responders
     SUBDIR += rubygem-responders-rails5
     SUBDIR += rubygem-responders-rails52

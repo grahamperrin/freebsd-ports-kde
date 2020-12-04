@@ -3,6 +3,7 @@
 PORTNAME=	irssi
 DISTVERSION=	1.3-dev-344
 DISTVERSIONSUFFIX=	-gf57dcfe9
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES?=	irc
 
@@ -52,7 +53,12 @@ TRUECOLOR_MESON_YES=	enable-true-color
 UTF8PROC_LIB_DEPENDS=	libutf8proc.so:textproc/utf8proc
 UTF8PROC_MESON_NO=	disable-utf8proc
 
+PERL5_USE_OFF=	perl5=build
+
+post-install-PERL-off:
+	@${RM} -r ${STAGEDIR}${DATADIR}/scripts
+
 post-install:
-	@${MV} ${WRKSRC}/irssi.conf ${STAGEDIR}${PREFIX}/etc/irssi.conf.sample
+	${INSTALL_DATA} ${WRKSRC}/irssi.conf ${STAGEDIR}${PREFIX}/etc/irssi.conf.sample
 
 .include <bsd.port.mk>
