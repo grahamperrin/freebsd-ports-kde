@@ -1,1 +1,2 @@
 lib/libproxy/%%VERSION%%/modules/config_kde.so
+lib/libproxy/%%VERSION%%/modules/config_pacrunner.so
