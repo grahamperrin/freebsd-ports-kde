@@ -62,6 +62,7 @@ share/icons/hicolor/48x48/apps/kdenlive.png
 share/icons/hicolor/64x64/actions/kdenlive-select-all.png
 share/icons/hicolor/64x64/apps/kdenlive.png
 share/icons/hicolor/64x64/mimetypes/application-x-kdenlivetitle.png
+share/icons/hicolor/scalable/actions/kdenlive-add-subtitle.svg
 share/icons/hicolor/scalable/actions/kdenlive-align-bottom.svgz
 share/icons/hicolor/scalable/actions/kdenlive-align-hor.svgz
 share/icons/hicolor/scalable/actions/kdenlive-align-left.svgz

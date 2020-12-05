@@ -41,10 +41,10 @@ lib/cmake/KOSMIndoorMap/KOSMIndoorMapConfigVersion.cmake
 lib/cmake/KOSMIndoorMap/KOSMIndoorMapTargets-%%CMAKE_BUILD_TYPE%%.cmake
 lib/cmake/KOSMIndoorMap/KOSMIndoorMapTargets.cmake
 lib/libKOSM.so
-lib/libKOSM.so.%%KDE_APPLICATIONS_VERSION_SHORT%%
+lib/libKOSM.so.1
 lib/libKOSM.so.%%KDE_APPLICATIONS_VERSION%%
 lib/libKOSMIndoorMap.so
-lib/libKOSMIndoorMap.so.%%KDE_APPLICATIONS_VERSION_SHORT%%
+lib/libKOSMIndoorMap.so.1
 lib/libKOSMIndoorMap.so.%%KDE_APPLICATIONS_VERSION%%
 %%QT_QMLDIR%%/org/kde/kosmindoormap/IndoorMap.qml
 %%QT_QMLDIR%%/org/kde/kosmindoormap/IndoorMapAttributionLabel.qml

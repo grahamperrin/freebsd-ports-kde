@@ -26,8 +26,6 @@ _CORETOOLS=	md5sum sha1sum sha256sum sha512sum
 
 OPTIONS_DEFINE=	DOCS
 
-PLIST_SUB=	KDE_APPLICATIONS_SHLIB_VER=5.15.82
-
 post-extract:
 # use the binaries of coreutils
 .  for ct in ${_CORETOOLS}

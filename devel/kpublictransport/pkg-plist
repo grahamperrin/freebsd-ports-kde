@@ -69,7 +69,7 @@ lib/cmake/KPublicTransport/KPublicTransportConfigVersion.cmake
 lib/cmake/KPublicTransport/KPublicTransportTargets-%%CMAKE_BUILD_TYPE%%.cmake
 lib/cmake/KPublicTransport/KPublicTransportTargets.cmake
 lib/libKPublicTransport.so
-lib/libKPublicTransport.so.%%KDE_APPLICATIONS_VERSION_SHORT%%
+lib/libKPublicTransport.so.1
 lib/libKPublicTransport.so.%%KDE_APPLICATIONS_VERSION%%
 %%QT_QMLDIR%%/org/kde/kpublictransport/libkpublictransportqmlplugin.so
 %%QT_QMLDIR%%/org/kde/kpublictransport/qmldir

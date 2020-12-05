@@ -1,3 +1,3 @@
-TIMESTAMP = 1606454530
-SHA256 (KDE/release-service/20.11.90/kcalutils-20.11.90.tar.xz) = a9cac03d4cc5788ef61f44ab5cedc52a3722dc680ac5a7c5d3132ed1e0e7925e
-SIZE (KDE/release-service/20.11.90/kcalutils-20.11.90.tar.xz) = 324844
+TIMESTAMP = 1607111072
+SHA256 (KDE/release-service/20.12.0/kcalutils-20.12.0.tar.xz) = c89cc5278e2701ac25445b0cb637468b26a3d54da1f81d67b9b49920017f70bf
+SIZE (KDE/release-service/20.12.0/kcalutils-20.12.0.tar.xz) = 324776

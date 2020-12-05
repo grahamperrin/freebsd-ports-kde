@@ -22,8 +22,6 @@ USE_LDCONFIG=	yes
 
 DESCR=		${.CURDIR:H:H}/deskutils/kdepim/pkg-descr
 
-PLIST_SUB=	KDE_APPLICATIONS_SHLIB_VER=5.15.81
-
 OPTIONS_DEFINE=	DOCS
 
 .include <bsd.port.mk>
