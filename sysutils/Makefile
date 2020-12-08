@@ -231,7 +231,7 @@
     SUBDIR += daemontools-encore
     SUBDIR += daggy
     SUBDIR += dar
-    SUBDIR += datadog
+    SUBDIR += datadog-agent
     SUBDIR += dateutils
     SUBDIR += dc3dd
     SUBDIR += dcfldd
@@ -966,8 +966,10 @@
     SUBDIR += puppet-mode.el
     SUBDIR += puppet5
     SUBDIR += puppet6
+    SUBDIR += puppet7
     SUBDIR += puppetserver5
     SUBDIR += puppetserver6
+    SUBDIR += puppetserver7
     SUBDIR += pv
     SUBDIR += pwd_unmkdb
     SUBDIR += pwgen
@@ -1119,6 +1121,7 @@
     SUBDIR += rubygem-chef-zero
     SUBDIR += rubygem-chef-zero5
     SUBDIR += rubygem-chef12
+    SUBDIR += rubygem-choria-mcorpc-support
     SUBDIR += rubygem-facter
     SUBDIR += rubygem-fluent-mixin-plaintextformatter
     SUBDIR += rubygem-fluent-plugin-config-expander
