@@ -328,6 +328,7 @@
     SUBDIR += madsonic
     SUBDIR += man2web
     SUBDIR += mathjax
+    SUBDIR += mathjax3
     SUBDIR += mathopd
     SUBDIR += matomo
     SUBDIR += mattermost-server
@@ -419,7 +420,6 @@
     SUBDIR += monolith
     SUBDIR += moodle310
     SUBDIR += moodle35
-    SUBDIR += moodle37
     SUBDIR += moodle38
     SUBDIR += moodle39
     SUBDIR += morty
@@ -1696,6 +1696,7 @@
     SUBDIR += py-pylsqpack
     SUBDIR += py-pyocclient
     SUBDIR += py-pyramid
+    SUBDIR += py-pyramid-mako
     SUBDIR += py-pyramid_rpc
     SUBDIR += py-pysmartdl
     SUBDIR += py-python-digitalocean
@@ -2125,6 +2126,7 @@
     SUBDIR += serendipity
     SUBDIR += serf
     SUBDIR += servlet-api
+    SUBDIR += sfeed
     SUBDIR += sfnt2woff
     SUBDIR += shellinabox
     SUBDIR += shttpd

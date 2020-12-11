@@ -46,6 +46,7 @@
     SUBDIR += agg
     SUBDIR += akira
     SUBDIR += alembic
+    SUBDIR += aloadimage
     SUBDIR += alpng
     SUBDIR += ampasACES-container
     SUBDIR += ampasCTL
@@ -805,6 +806,7 @@
     SUBDIR += py-PyOpenGL
     SUBDIR += py-PyOpenGL-accelerate
     SUBDIR += py-actdiag
+    SUBDIR += py-altair
     SUBDIR += py-beziers
     SUBDIR += py-blockdiag
     SUBDIR += py-blockdiagcontrib-cisco
