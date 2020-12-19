@@ -15,10 +15,7 @@ NOT_FOR_ARCHS=	sparc64
 NOT_FOR_ARCHS_REASON_sparc64=	does not compile on sparc64
 
 .if defined(OCV_CORE)
-BUILD_DEPENDS=	protoc:devel/protobuf \
-		bash:shells/bash
-USES+=		shebangfix
-SHEBANG_FILES=	cmake/templates/setup_vars_linux.sh.in
+BUILD_DEPENDS=	protoc:devel/protobuf
 .else
 LIB_DEPENDS=	libgflags.so:devel/gflags \
 		libglog.so:devel/glog \
@@ -37,9 +34,11 @@ USE_CXXSTD=	c++11
 DATADIR=	${PREFIX}/share/OpenCV
 PLIST_SUB+=	SOVERSION=${DISTVERSION:R} VERSION=${DISTVERSION}
 
+CMAKE_OFF+=	OPENCV_GENERATE_SETUPVARS
+
 # 3rd party libs
-CMAKE_ON=	ENABLE_CXX11 PROTOBUF_UPDATE_FILES
-CMAKE_OFF=	BUILD_ZLIB BUILD_TIFF BUILD_JASPER BUILD_JPEG BUILD_PNG \
+CMAKE_ON+=	ENABLE_CXX11 PROTOBUF_UPDATE_FILES
+CMAKE_OFF+=	BUILD_ZLIB BUILD_TIFF BUILD_JASPER BUILD_JPEG BUILD_PNG \
 		BUILD_OPENEXR BUILD_WEBP BUILD_TBB BUILD_PROTOBUF
 # Optional 3rd party components
 # always off (not supported on FreeBSD or difficult to deal with in ports)

@@ -1,4 +1,3 @@
-bin/setup_vars_opencv3.sh
 include/opencv/cvwimage.h
 include/opencv/cxcore.h
 include/opencv/cxcore.hpp
