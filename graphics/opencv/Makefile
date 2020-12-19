@@ -602,7 +602,6 @@ post-install-EXAMPLES-on:
 
 .include <bsd.port.pre.mk>
 
-
 .if ${PORT_OPTIONS:MIPP}
 .  if ${ARCH} == amd64
 LICENSE+=		ISSL
@@ -634,12 +633,6 @@ LIB_DEPENDS+=	libomp.so:devel/openmp
 
 .if ${PORT_OPTIONS:MEXTRA_MODULES} && !defined(OCV_CORE)
 CMAKE_ARGS+=	-DOPENCV_EXTRA_MODULES_PATH=${WRKDIR}/opencv_contrib-${PORTVERSION}/modules
-.endif
-
-.if !defined(OCV_CORE)
-.  if (${OPSYS} == FreeBSD && ${OSVERSION} < 1200000)
-#EXTRA_PATCHES+=		${FILESDIR}/extra-patch-modules_sfm_src_libmv__light_libmv_numeric_numeric.cc
-.  endif
 .endif
 
 .include <bsd.port.post.mk>
