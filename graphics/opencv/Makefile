@@ -15,7 +15,10 @@ NOT_FOR_ARCHS=	sparc64
 NOT_FOR_ARCHS_REASON_sparc64=	does not compile on sparc64
 
 .if defined(OCV_CORE)
-BUILD_DEPENDS=	protoc:devel/protobuf
+BUILD_DEPENDS=	protoc:devel/protobuf \
+		bash:shells/bash
+USES+=		shebangfix
+SHEBANG_FILES=	cmake/templates/setup_vars_linux.sh.in
 .else
 LIB_DEPENDS=	libgflags.so:devel/gflags \
 		libglog.so:devel/glog \
@@ -25,7 +28,7 @@ BUILD_DEPENDS=	${LOCALBASE}/lib/libopencv_core.so:graphics/opencv-core
 RUN_DEPENDS=	${LOCALBASE}/lib/libopencv_core.so:graphics/opencv-core
 .endif
 
-USES=		cmake compiler:c++14-lang gnome localbase:ldflags pkgconfig
+USES+=		cmake compiler:c++14-lang gnome localbase:ldflags pkgconfig
 
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
@@ -505,8 +508,6 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|share/OpenCV/doc|${DOCSDIR_REL}|g' \
 		-e 's|share/OpenCV/samples|${EXAMPLESDIR_REL}|g' \
 		${WRKSRC}/CMakeLists.txt
-	@${REINPLACE_CMD} -e 's|<malloc.h>|<stdlib.h>|g' \
-		${WRKSRC}/modules/dnn/src/torch/THGeneral.cpp
 .if defined(OCV_CORE)
 	@${REINPLACE_CMD} -e 's|opencv.pc|opencv-core.pc|g' \
 		${WRKSRC}/cmake/OpenCVGenPkgconfig.cmake
