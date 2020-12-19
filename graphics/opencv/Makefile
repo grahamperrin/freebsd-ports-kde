@@ -363,16 +363,7 @@ OPENGL_IMPLIES=		GTK2
 OPENGL_PREVENTS=	GTK3
 
 OGRE_DESC=		OGRE 3D engine support
-OGRE_LIB_DEPENDS=	libOgreBites.so:graphics/ogre3d \
-			libOgreHLMS.so:graphics/ogre3d \
-			libOgreMeshLodGenerator.so:graphics/ogre3d \
-			libOgreOverlay.so:graphics/ogre3d \
-			libOgreProperty.so:graphics/ogre3d \
-			libOgreRTShaderSystem.so:graphics/ogre3d \
-			libOgreTerrain.so:graphics/ogre3d \
-			libOgreVolume.so:graphics/ogre3d \
-			libOgrePaging.so:graphics/ogre3d \
-			libOgreMain.so:graphics/ogre3d
+OGRE_LIB_DEPENDS=	libOgreBites.so:graphics/ogre3d
 
 GTK3_DESC=		GTK3 (disables OpenGL)
 GTK3_USES=		gettext-runtime
