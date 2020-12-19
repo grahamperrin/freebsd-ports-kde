@@ -416,7 +416,6 @@ OCV_LIBDIR=		${LOCALBASE}/lib
 .  for module in ${OCV_MODS} ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS} ${OCV_VTK_MODS}
 CMAKE_OFF+=		BUILD_opencv_${module}
 .  endfor
-
 .elif defined(OCV_PYTHON)
 _PYTHON_FEATURE_FLAVORS=	yes
 CATEGORIES+=	python
@@ -439,7 +438,7 @@ USES+=		python:build
 USE_JAVA=	yes
 CMAKE_ON=	BUILD_opencv_java \
 		BUILD_JAVA
-.  for module in	apps js python2 python3 shape stitching superres ts \
+.  for module in apps js python2 python3 shape stitching superres ts \
 		videostab viz
 CMAKE_OFF+=	BUILD_opencv_${module}
 .  endfor
@@ -466,7 +465,6 @@ CMAKE_OFF+=	BUILD_opencv_${module}
 .if !defined(OCV_JAVA)
 CMAKE_OFF+=	BUILD_JAVA
 .endif
-
 
 post-extract-IPP-on:
 	@${MKDIR} ${CONFIGURE_WRKSRC}/3rdparty/ippicv
@@ -504,7 +502,6 @@ post-patch:
 .endif
 	@${FIND} ${WRKSRC} -name '*.bak' -exec ${RM} {} \;
 
-
 post-build-DOXYGEN-on:
 .if !defined(OCV_SLAVE)
 	${MAKE_CMD} -C ${BUILD_WRKSRC} doc/doxygen_cpp
@@ -515,7 +512,6 @@ post-build-DOXYGEN-on:
 .elif defined(OCV_PYTHON)
 	${MAKE_CMD} -C ${BUILD_WRKSRC} doxygen_python
 .endif
-
 
 post-install:
 .if !defined(OCV_SLAVE)
