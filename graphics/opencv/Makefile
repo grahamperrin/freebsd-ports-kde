@@ -428,9 +428,9 @@ TESTS_CMAKE_BOOL=	BUILD_PERF_TESTS BUILD_TESTS INSTALL_TESTS
 
 OCV_LIBDIR=		${LOCALBASE}/lib
 .if defined(OCV_CORE)
-. for module in ${OCV_MODS} ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS} ${OCV_VTK_MODS}
+.  for module in ${OCV_MODS} ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS} ${OCV_VTK_MODS}
 CMAKE_ARGS+=		-DBUILD_opencv_${module}:BOOL=OFF
-. endfor
+.  endfor
 
 .elif defined(OCV_PYTHON)
 _PYTHON_FEATURE_FLAVORS=	yes
@@ -449,9 +449,9 @@ RUN_DEPENDS+=	${PYNUMPY}
 USES+=		python
 USE_PYTHON=	flavors
 CMAKE_ARGS+=	-DBUILD_opencv_python${PYTHON_MAJOR_VER}:BOOL=ON
-. for module in apps java stitching superres videostab
+.  for module in apps java stitching superres videostab
 CMAKE_ARGS+=	-DBUILD_opencv_${module}:BOOL=OFF
-. endfor
+.  endfor
 INSTALL_WRKSRC=	${CONFIGURE_WRKSRC}/modules/python${PYTHON_MAJOR_VER}
 EXAMPLES_CMAKE_BOOL+=	INSTALL_PYTHON_EXAMPLES
 
@@ -465,20 +465,20 @@ USES+=		python:build
 USE_JAVA=	yes
 CMAKE_ARGS+=	-DBUILD_opencv_java:BOOL=ON \
 		-DBUILD_JAVA:BOOL=ON
-. for module in	apps js python2 python3 shape stitching superres ts \
+.  for module in	apps js python2 python3 shape stitching superres ts \
 		videostab viz
 CMAKE_ARGS+=	-DBUILD_opencv_${module}:BOOL=OFF
-. endfor
+.  endfor
 CONFIGURE_ENV+=	JAVA_HOME="${JAVA_HOME}"
 INSTALL_WRKSRC=	${CONFIGURE_WRKSRC}/modules/java
 
 .elif defined(OCV_JS)
 CMAKE_BOOL=	BUILD_opencv_js
 # emscripten is not in the port. So, corresponding slave port does not exist.
-. for module in apps python java calib3d flann highgui imgcodecs ml photo \
+.  for module in apps python java calib3d flann highgui imgcodecs ml photo \
 		shape stitching superres ts videoio videostab viz
 CMAKE_ARGS+=	-DBUILD_opencv_${module}:BOOL=OFF
-. endfor
+.  endfor
 INSTALL_WRKSRC=	${CONFIGURE_WRKSRC}/modules/js
 
 .else
@@ -486,9 +486,9 @@ EXAMPLES_CMAKE_BOOL+=	INSTALL_C_EXAMPLES
 # LIB_DEPENDS+=	libopencv_core.so.${DISTVERSION}:graphics/opencv${OCV_SUFFIX}-core
 BUILD_DEPENDS+=	${OCV_LIBDIR}/libopencv_core.so.${DISTVERSION}:graphics/opencv-core
 RUN_DEPENDS+=	${OCV_LIBDIR}/libopencv_core.so.${DISTVERSION}:graphics/opencv-core
-. for module in ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS} ${OCV_JS_MODS}
+.  for module in ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS} ${OCV_JS_MODS}
 CMAKE_ARGS+=	-DBUILD_opencv_${module}:BOOL=OFF
-. endfor
+.  endfor
 .endif
 
 .if !defined(OCV_JAVA)
@@ -605,7 +605,7 @@ post-install-EXAMPLES-on:
 
 
 .if ${PORT_OPTIONS:MIPP}
-. if ${ARCH} == amd64
+.  if ${ARCH} == amd64
 LICENSE+=		ISSL
 LICENSE_COMB=		multi
 LICENSE_NAME_ISSL=	Intel Simplified Software License (Version April 2018)
@@ -617,13 +617,13 @@ CMAKE_ARGS+=		-DWITH_IPP:BOOL=ON \
 			-DBUILD_IPP_IW:BOOL=ON
 PLIST_SUB+=		IPPICV=""
 
-. elif ${ARCH} == i386
+.  elif ${ARCH} == i386
 IPPICVARC=		ippicv_2019_lnx_ia32_general_20180723.tgz
 # IPP on i386 cannot be used with dynamic libraries.
 PLIST_SUB+=		IPPICV="@comment "
-. else
+.  else
 PLIST_SUB+=		IPPICV="@comment "
-. endif
+.  endif
 .else
 PLIST_SUB+=		IPPICV="@comment "
 .endif
@@ -638,9 +638,9 @@ CMAKE_ARGS+=	-DOPENCV_EXTRA_MODULES_PATH=${WRKDIR}/opencv_contrib-${PORTVERSION}
 .endif
 
 .if !defined(OCV_CORE)
-.if (${OPSYS} == FreeBSD && ${OSVERSION} < 1200000)
+.  if (${OPSYS} == FreeBSD && ${OSVERSION} < 1200000)
 #EXTRA_PATCHES+=		${FILESDIR}/extra-patch-modules_sfm_src_libmv__light_libmv_numeric_numeric.cc
-.endif
+.  endif
 .endif
 
 .include <bsd.port.post.mk>
