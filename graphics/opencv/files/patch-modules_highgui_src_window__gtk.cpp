@@ -1,6 +1,6 @@
---- modules/highgui/src/window_gtk.cpp.orig	2016-12-23 12:54:44 UTC
+--- modules/highgui/src/window_gtk.cpp.orig	2018-12-21 14:31:20 UTC
 +++ modules/highgui/src/window_gtk.cpp
-@@ -46,10 +46,12 @@
+@@ -45,10 +45,12 @@
  
  #if defined (HAVE_GTK)
  

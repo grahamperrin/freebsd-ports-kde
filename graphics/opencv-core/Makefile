@@ -1,8 +1,7 @@
 # Created by: Martin Matuska <mm@FreeBSD.org>
 # $FreeBSD$
 
-PORTREVISION=	3
-PKGNAMESUFFIX=	-${OCV_SLAVE}
+PKGNAMESUFFIX=	${OCV_SUFFIX}-${OCV_SLAVE}
 
 COMMENT=	OpenCV core libraries
 

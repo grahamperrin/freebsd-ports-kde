@@ -1,0 +1,8 @@
+--- ../opencv_contrib-3.4.7/modules/xobjdetect/tools/waldboost_detector/CMakeLists.txt.orig	2019-04-06 09:23:17.688837000 +0000
++++ ../opencv_contrib-3.4.7/modules/xobjdetect/tools/waldboost_detector/CMakeLists.txt	2019-04-06 09:23:34.896963000 +0000
+@@ -31,4 +31,4 @@
+   set_target_properties(${the_target} PROPERTIES FOLDER "applications")
+ endif()
+ 
+-install(TARGETS ${the_target} OPTIONAL RUNTIME DESTINATION bin COMPONENT main)
++install(TARGETS ${the_target} OPTIONAL RUNTIME DESTINATION bin COMPONENT main)

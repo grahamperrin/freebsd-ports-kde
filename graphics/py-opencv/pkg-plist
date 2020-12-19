@@ -1,1 +1,1 @@
-%%PYTHON_SITELIBDIR%%/cv2.so
+%%PYTHON_SITELIBDIR%%/cv2/python-%%PYTHON_VER%%/cv2.so

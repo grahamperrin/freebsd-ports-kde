@@ -1,4 +1,4 @@
---- modules/videoio/src/cap_libv4l.cpp.orig	2016-12-23 12:54:44 UTC
+--- modules/videoio/src/cap_libv4l.cpp.orig	2018-12-21 14:31:20 UTC
 +++ modules/videoio/src/cap_libv4l.cpp
 @@ -251,7 +251,9 @@ make & enjoy!
  #include <sys/mman.h>
@@ -29,7 +29,7 @@
  } v4l2_ctrl_range;
  
  typedef struct CvCaptureCAM_V4L
-@@ -542,7 +544,7 @@ static void v4l2_add_ctrl_range(CvCaptur
+@@ -543,7 +545,7 @@ static void v4l2_add_ctrl_range(CvCaptureCAM_V4L* capt
    capture->v4l2_ctrl_ranges = (v4l2_ctrl_range**)realloc((v4l2_ctrl_range**)capture->v4l2_ctrl_ranges, (capture->v4l2_ctrl_count + 1) * sizeof(v4l2_ctrl_range*));
  }
  
@@ -38,7 +38,7 @@
    int i;
    for (i = 0; i < capture->v4l2_ctrl_count; i++) {
      if (id == capture->v4l2_ctrl_ranges[i]->ctrl_id) {
-@@ -552,7 +554,7 @@ static int v4l2_get_ctrl_default(CvCaptu
+@@ -553,7 +555,7 @@ static int v4l2_get_ctrl_default(CvCaptureCAM_V4L* cap
    return -1;
  }
  
@@ -47,7 +47,7 @@
    int i;
    for (i = 0; i < capture->v4l2_ctrl_count; i++) {
      if (id == capture->v4l2_ctrl_ranges[i]->ctrl_id) {
-@@ -562,7 +564,7 @@ static int v4l2_get_ctrl_min(CvCaptureCA
+@@ -563,7 +565,7 @@ static int v4l2_get_ctrl_min(CvCaptureCAM_V4L* capture
    return -1;
  }
  
@@ -56,7 +56,7 @@
    int i;
    for (i = 0; i < capture->v4l2_ctrl_count; i++) {
      if (id == capture->v4l2_ctrl_ranges[i]->ctrl_id) {
-@@ -575,7 +577,7 @@ static int v4l2_get_ctrl_max(CvCaptureCA
+@@ -576,7 +578,7 @@ static int v4l2_get_ctrl_max(CvCaptureCAM_V4L* capture
  
  static void v4l2_scan_controls(CvCaptureCAM_V4L* capture) {
  
@@ -65,7 +65,7 @@
    struct v4l2_control c;
    if (capture->v4l2_ctrl_ranges != NULL) {
      v4l2_free_ranges(capture);
-@@ -1653,7 +1655,7 @@ static int icvSetVideoSize( CvCaptureCAM
+@@ -1660,7 +1662,7 @@ static int icvSetVideoSize( CvCaptureCAM_V4L* capture,
  
  static int icvSetControl (CvCaptureCAM_V4L* capture, int property_id, double value) {
    struct v4l2_control c;

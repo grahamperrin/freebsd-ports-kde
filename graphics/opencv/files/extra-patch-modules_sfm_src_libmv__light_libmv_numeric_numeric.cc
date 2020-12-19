@@ -1,5 +1,5 @@
---- modules/sfm/src/libmv_light/libmv/numeric/numeric.cc.orig	2018-04-27 13:11:58.957812000 +0000
-+++ modules/sfm/src/libmv_light/libmv/numeric/numeric.cc	2018-04-27 15:52:13.702374000 +0000
+--- ../opencv_contrib-3.4.7/modules/sfm/src/libmv_light/libmv/numeric/numeric.cc.orig	2018-04-27 13:11:58.957812000 +0000
++++ ../opencv_contrib-3.4.7/modules/sfm/src/libmv_light/libmv/numeric/numeric.cc	2018-04-27 15:52:13.702374000 +0000
 @@ -24,8 +24,8 @@
  namespace libmv {
  
