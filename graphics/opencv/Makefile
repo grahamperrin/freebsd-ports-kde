@@ -182,6 +182,7 @@ USES+=			python:3.2+,build
 .endif
 
 CERES_DESC=		Ceres sover (needed by contrib_sfm mod.)
+CERES_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_Ceres
 CERES_LIB_DEPENDS=	libceres.so:math/ceres-solver
 
 DC1394_DESC=		IEEE 1394 camera support
@@ -212,7 +213,6 @@ VA_DESC=		libva support
 VA_LIB_DEPENDS=		libva.so:multimedia/libva
 VA_CMAKE_BOOL=		WITH_VA
 
-
 BLASLIB_DESC=		BLAS and LAPACK libraries
 
 ATLAS_USES=		blaslapack:atlas
@@ -236,7 +236,6 @@ OPENBLAS_VARS=		${NETLIB_VARS}
 OPENBLAS_CMAKE_ARGS=	${NETLIB_CMAKE_ARGS}
 OPENBLAS_BUILD_DEPENDS+=	${NETLIB_BUILD_DEPENDS}
 OPENBLAS_RUN_DEPENDS=	${NETLIB_RUN_DEPENDS}
-
 
 PERFORMANCE_DESC=	Performance enhancing libraries
 
@@ -271,7 +270,6 @@ TBB_CMAKE_BOOL=		WITH_TBB
 
 VFPV3_DESC=		enable VFPv3-D32 instructions (arm or aarch64)
 VFPV3_CMAKE_BOOL=	ENABLE_VFPV3
-
 
 IMAGE_DESC=		Image format support
 
