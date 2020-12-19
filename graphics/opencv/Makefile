@@ -63,6 +63,8 @@ CMAKE_OFF+=	ENABLE_CCACHE \
 		ENABLE_FLAKE8
 CMAKE_ON+=	ENABLE_OMIT_FRAME_POINTER
 
+CMAKE_OFF+=	WITH_VTK
+
 SUB_FILES=	FindOpenCVCore.cmake
 SUB_LIST=	OCV_VERSION=${DISTVERSION}
 
@@ -287,13 +289,6 @@ QT_DESC=		Qt GUI module
 QT_USES=		qt:5
 QT_USE=			QT=buildtools_build,concurrent,core,gui,opengl,qmake_build,testlib,widgets
 QT_CMAKE_BOOL=		WITH_QT
-
-VTK_DESC=		VTK library support and build viz module
-VTK_USE=		xorg=x11,ice,sm,xext,xt
-VTK_LIB_DEPENDS=	libvtksys-8.1.so:math/vtk8 \
-			libfreetype.so:print/freetype2
-VTK_CMAKE_BOOL=		WITH_VTK BUILD_opencv_viz
-VTK_IMPLIES=		JPEG PNG TIFF
 
 EXTRA_MODULES_DESC=		Build OpenCV contrib modules
 EXTRA_MODULES_GH_PROJECT=	opencv_contrib:extra_mod \
