@@ -204,9 +204,6 @@ GDCM_LIB_DEPENDS=	libgdcmMSFF.so:devel/gdcm
 GDCM_CMAKE_BOOL=	WITH_GDCM
 
 OPENEXR_LIB_DEPENDS=	libHalf.so:graphics/ilmbase \
-			libIex-2_3.so:graphics/ilmbase \
-			libIlmThread-2_3.so:graphics/ilmbase \
-			libImath-2_3.so:graphics/ilmbase \
 			libIlmImf.so:graphics/openexr
 MFX_DESC=		Intel MediaSDK (aka Quick Sync Video)
 MFX_LIB_DEPENDS=	libmfx.so:multimedia/intel-media-sdk \
