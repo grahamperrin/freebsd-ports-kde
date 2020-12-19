@@ -434,17 +434,9 @@ CMAKE_OFF+=		BUILD_opencv_${module}
 .elif defined(OCV_PYTHON)
 _PYTHON_FEATURE_FLAVORS=	yes
 CATEGORIES+=	python
-# LIB_DEPENDS+=	libopencv_core.so.${DISTVERSION}:graphics/opencv${OCV_SUFFIX}-core \
-#		libopencv_imgproc.so.${DISTVERSION}:graphics/opencv${OCV_SUFFIX}-core \
-#		libopencv_ml.so.${DISTVERSION}:graphics/opencv${OCV_SUFFIX}
-BUILD_DEPENDS+=	${OCV_LIBDIR}/libopencv_core.so.${DISTVERSION}:graphics/opencv-core \
-		${OCV_LIBDIR}/libopencv_imgproc.so.${DISTVERSION}:graphics/opencv-core \
-		${OCV_LIBDIR}/libopencv_ml.so.${DISTVERSION}:graphics/opencv
-RUN_DEPENDS+=	${OCV_LIBDIR}/libopencv_core.so.${DISTVERSION}:graphics/opencv-core \
-		${OCV_LIBDIR}/libopencv_imgproc.so.${DISTVERSION}:graphics/opencv-core \
-		${OCV_LIBDIR}/libopencv_ml.so.${DISTVERSION}:graphics/opencv
 BUILD_DEPENDS+=	${PYNUMPY}
 RUN_DEPENDS+=	${PYNUMPY}
+RUN_DEPENDS+=	${OCV_LIBDIR}/libopencv_ml.so.${DISTVERSION}:graphics/opencv
 USES+=		python
 USE_PYTHON=	flavors
 CMAKE_ON+=	BUILD_opencv_python${PYTHON_MAJOR_VER}
@@ -457,9 +449,6 @@ EXAMPLES_CMAKE_BOOL+=	INSTALL_PYTHON_EXAMPLES
 .elif defined(OCV_JAVA)
 CATEGORIES+=	java
 BUILD_DEPENDS+=	ant:devel/apache-ant
-# LIB_DEPENDS+=	libopencv_ml.so:graphics/opencv${OCV_SUFFIX}
-BUILD_DEPENDS+=	${OCV_LIBDIR}/libopencv_ml.so:graphics/opencv
-RUN_DEPENDS+=	${OCV_LIBDIR}/libopencv_ml.so:graphics/opencv
 USES+=		python:build
 USE_JAVA=	yes
 CMAKE_ON=	BUILD_opencv_java \
@@ -483,8 +472,6 @@ INSTALL_WRKSRC=	${CONFIGURE_WRKSRC}/modules/js
 .else
 EXAMPLES_CMAKE_BOOL+=	INSTALL_C_EXAMPLES
 # LIB_DEPENDS+=	libopencv_core.so.${DISTVERSION}:graphics/opencv${OCV_SUFFIX}-core
-BUILD_DEPENDS+=	${OCV_LIBDIR}/libopencv_core.so.${DISTVERSION}:graphics/opencv-core
-RUN_DEPENDS+=	${OCV_LIBDIR}/libopencv_core.so.${DISTVERSION}:graphics/opencv-core
 .  for module in ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS} ${OCV_JS_MODS}
 CMAKE_OFF+=	BUILD_opencv_${module}
 .  endfor
