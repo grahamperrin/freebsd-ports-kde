@@ -1,1 +1,16 @@
 %%PYTHON_SITELIBDIR%%/cv2/python-%%PYTHON_VER%%/cv2.so
+%%PYTHON_SITELIBDIR%%/cv2/__init__.py
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/__init__.cpython-%%PYTHON_SUFFIX%%.opt-1.pyc
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/__init__.cpython-%%PYTHON_SUFFIX%%.pyc
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/config-%%PYTHON_VER%%.cpython-%%PYTHON_SUFFIX%%.opt-1.pyc
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/config-%%PYTHON_VER%%.cpython-%%PYTHON_SUFFIX%%.pyc
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/config.cpython-%%PYTHON_SUFFIX%%.opt-1.pyc
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/config.cpython-%%PYTHON_SUFFIX%%.pyc
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/load_config_py2.cpython-%%PYTHON_SUFFIX%%.opt-1.pyc
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/load_config_py2.cpython-%%PYTHON_SUFFIX%%.pyc
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/load_config_py3.cpython-%%PYTHON_SUFFIX%%.opt-1.pyc
+%%PYTHON_SITELIBDIR%%/cv2/__pycache__/load_config_py3.cpython-%%PYTHON_SUFFIX%%.pyc
+%%PYTHON_SITELIBDIR%%/cv2/config-%%PYTHON_VER%%.py
+%%PYTHON_SITELIBDIR%%/cv2/config.py
+%%PYTHON_SITELIBDIR%%/cv2/load_config_py2.py
+%%PYTHON_SITELIBDIR%%/cv2/load_config_py3.py
