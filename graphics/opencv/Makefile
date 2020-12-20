@@ -3,7 +3,7 @@
 
 PORTNAME=	opencv
 PORTVERSION=	3.4.7
-CATEGORIES=	graphics
+CATEGORIES?=	graphics
 
 MAINTAINER=	tcberner@FreeBSD.org
 COMMENT=	Open Source Computer Vision library
@@ -39,8 +39,7 @@ PLIST_SUB+=	SOVERSION=${DISTVERSION:R} VERSION=${DISTVERSION}
 CMAKE_OFF+=	ENABLE_CONFIG_VERIFICATION
 
 # Don't generate bash script
-CMAKE_OFF+=	OPENCV_GENERATE_SETUPVARS \
-		USE_IPPICV
+CMAKE_OFF+=	OPENCV_GENERATE_SETUPVARS USE_IPPICV
 
 # 3rd party libs
 CMAKE_ON+=	ENABLE_CXX11 PROTOBUF_UPDATE_FILES
@@ -49,20 +48,15 @@ CMAKE_OFF+=	BUILD_ZLIB BUILD_TIFF BUILD_JASPER BUILD_JPEG BUILD_PNG \
 
 # Optional 3rd party components
 # always off (not supported on FreeBSD or difficult to deal with in ports)
-CMAKE_OFF+=	WITH_CPUFEATURES WITH_CUDA WITH_CUFFT WITH_CUBLAS \
-		WITH_NVCUVID WITH_INF_ENGINE WITH_OPENNI WITH_OPENNI2
+CMAKE_OFF+=	WITH_CPUFEATURES WITH_CUBLAS WITH_CUDA WITH_CUFFT \
+		WITH_INF_ENGINE WITH_NVCUVID WITH_OPENNI WITH_OPENNI2
 # OpenCV build components
-CMAKE_OFF+=	BUILD_FAT_JAVA_LIB \
-		BUILD_PACKAGE \
-		BUILD_PERF_TESTS \
-		BUILD_TESTS \
-		BUILD_WITH_DEBUG_INFO
+CMAKE_OFF+=	BUILD_FAT_JAVA_LIB BUILD_PACKAGE BUILD_PERF_TESTS \
+		BUILD_TESTS BUILD_WITH_DEBUG_INFO
 # OpenCV installation options
 CMAKE_OFF+=	INSTALL_CREATE_DISTRIB
 # OpenCV build options
-CMAKE_OFF+=	ENABLE_CCACHE \
-		ENABLE_PYLINT \
-		ENABLE_FLAKE8
+CMAKE_OFF+=	ENABLE_CCACHE ENABLE_FLAKE8 ENABLE_PYLINT
 CMAKE_ON+=	ENABLE_OMIT_FRAME_POINTER
 
 CMAKE_OFF+=	WITH_VTK WITH_CAROTENE WITH_QUIRC \
@@ -77,8 +71,7 @@ OCV_MODS=		apps calib3d contrib dnn features2d flann highgui \
 			imgcodecs ml objdetect photo shape stitching \
 			superres ts video videoio videostab
 OCV_JAVA_MODS=		java
-OCV_PYTHON_MODS=	python2 python3
-OCV_JS_MODS=		js
+OCV_PYTHON_MODS=	python3
 
 OPTIONS_DEFINE=		EXAMPLES EXTRA_MODULES
 OPTIONS_GROUP=		PERFORMANCE IMAGE VIDEO
@@ -202,27 +195,25 @@ CMAKE_OFF+=		BUILD_opencv_${module}
 .  endfor
 .elif defined(OCV_PYTHON)
 _PYTHON_FEATURE_FLAVORS=	yes
-CATEGORIES+=	python
 BUILD_DEPENDS+=	${PYNUMPY}
 RUN_DEPENDS+=	${PYNUMPY}
 RUN_DEPENDS+=	${OCV_LIBDIR}/libopencv_ml.so.${DISTVERSION}:graphics/opencv
-USES+=		python
+USES+=		python:3.6+
 USE_PYTHON=	flavors
-CMAKE_ON+=	BUILD_opencv_python${PYTHON_MAJOR_VER}
+CMAKE_ON+=	BUILD_opencv_python3
 .  for module in apps java stitching superres videostab
 CMAKE_OFF+=	BUILD_opencv_${module}
 .  endfor
-INSTALL_WRKSRC=	${CONFIGURE_WRKSRC}/modules/python${PYTHON_MAJOR_VER}
+INSTALL_WRKSRC=	${CONFIGURE_WRKSRC}/modules/python3
 EXAMPLES_CMAKE_BOOL+=	INSTALL_PYTHON_EXAMPLES
 
 .elif defined(OCV_JAVA)
-CATEGORIES+=	java
 BUILD_DEPENDS+=	ant:devel/apache-ant
 USES+=		python:build
 USE_JAVA=	yes
-CMAKE_ON=	BUILD_opencv_java \
+CMAKE_ON+=	BUILD_opencv_java \
 		BUILD_JAVA
-.  for module in apps js python2 python3 shape stitching superres ts \
+.  for module in apps js python3 shape stitching superres ts \
 		videostab viz
 CMAKE_OFF+=	BUILD_opencv_${module}
 .  endfor
