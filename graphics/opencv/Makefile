@@ -17,10 +17,11 @@ NOT_FOR_ARCHS_REASON_sparc64=	does not compile on sparc64
 .if defined(OCV_CORE)
 BUILD_DEPENDS=	protoc:devel/protobuf
 .else
-LIB_DEPENDS=	libgflags.so:devel/gflags \
-		libglog.so:devel/glog \
+LIB_DEPENDS=	libprotobuf.so:devel/protobuf \
+		libtesseract.so:graphics/tesseract \
 		libhdf5.so:science/hdf5 \
-		libprotobuf.so:devel/protobuf
+		libgflags.so:devel/gflags \
+		libglog.so:devel/glog
 BUILD_DEPENDS=	${LOCALBASE}/lib/libopencv_core.so:graphics/opencv-core
 RUN_DEPENDS=	${LOCALBASE}/lib/libopencv_core.so:graphics/opencv-core
 .endif
@@ -51,7 +52,7 @@ CMAKE_OFF+=	BUILD_ZLIB BUILD_TIFF BUILD_JASPER BUILD_JPEG BUILD_PNG \
 CMAKE_OFF+=	WITH_CPUFEATURES WITH_CUDA WITH_CUFFT WITH_CUBLAS \
 		WITH_NVCUVID WITH_INF_ENGINE WITH_OPENNI WITH_OPENNI2
 # OpenCV build components
-CMAKE_OFF+=	gBUILD_FAT_JAVA_LIB \
+CMAKE_OFF+=	BUILD_FAT_JAVA_LIB \
 		BUILD_PACKAGE \
 		BUILD_PERF_TESTS \
 		BUILD_TESTS \
@@ -65,7 +66,8 @@ CMAKE_OFF+=	ENABLE_CCACHE \
 CMAKE_ON+=	ENABLE_OMIT_FRAME_POINTER
 
 CMAKE_OFF+=	WITH_VTK WITH_CAROTENE WITH_QUIRC \
-		WITH_GTK WITH_QT WITH_OPENGL
+		WITH_GTK WITH_QT WITH_OPENGL \
+		WITH_VA WITH_ITT
 
 SUB_FILES=	FindOpenCVCore.cmake
 SUB_LIST=	OCV_VERSION=${DISTVERSION}
@@ -74,111 +76,44 @@ OCV_CORE_MODS=		core imgproc
 OCV_MODS=		apps calib3d contrib dnn features2d flann highgui \
 			imgcodecs ml objdetect photo shape stitching \
 			superres ts video videoio videostab
-OCV_VTK_MODS=		viz
 OCV_JAVA_MODS=		java
 OCV_PYTHON_MODS=	python2 python3
 OCV_JS_MODS=		js
 
-OPTIONS_DEFINE=		DOXYGEN EXAMPLES EXTRA_MODULES ITT NONFREE \
-			TESSERACT TESTS VA
+OPTIONS_DEFINE=		EXAMPLES EXTRA_MODULES
 OPTIONS_GROUP=		PERFORMANCE IMAGE VIDEO
-OPTIONS_RADIO=		BLASLIB PARALLEL
-OPTIONS_RADIO_BLASLIB=	ATLAS NETLIB OPENBLAS
-OPTIONS_RADIO_PARALLEL=	OPENMP TBB
-OPTIONS_GROUP_PERFORMANCE=	COINMP EIGEN3 NEON OPENCL VFPV3
-OPTIONS_GROUP_IMAGE=	GDAL GDCM HDR JASPER JPEG OPENEXR PNG PXM SUNRASTER \
-			TIFF WEBP
+OPTIONS_GROUP_PERFORMANCE=	EIGEN3 OPENCL TBB
+OPTIONS_GROUP_IMAGE=	GDAL GDCM JASPER JPEG OPENEXR PNG TIFF WEBP
 OPTIONS_GROUP_VIDEO=	ARAVIS DC1394 FFMPEG GPHOTO2 GSTREAMER MFX V4L
-OPTIONS_DEFAULT=	EIGEN3 FFMPEG JASPER JPEG PNG TIFF WEBP V4L \
-			EXTRA_MODULES
+OPTIONS_DEFAULT=	EIGEN3 EXTRA_MODULES FFMPEG JASPER JPEG PNG TIFF WEBP V4L \
+			${MACHINE_CPU:tu}
 OPTIONS_SUB=		yes
 .if defined(OCV_CORE)
-OPTIONS_EXCLUDE=	COINMP DOXYGEN EXAMPLES EXTRA_MODULES NONFREE \
-			TESSERACT TESTS ITT OPENCL \
-			OPENGL OGRE QT VTK \
-			ARAVIS DC1394 FFMPEG GSTREAMER V4L \
-			GDAL GDCM GPHOTO2 HDR JASPER JPEG \
-			OPENEXR PNG PXM SUNRASTER TIFF WEBP
+OPTIONS_EXCLUDE=	${OPTIONS_GROUP_VIDEO} ${OPTIONS_GROUP_IMAGE}
 .elif defined(OCV_SLAVE)
-.else
-USES+=			python:3.2+,build
+OPTIONS_EXCLUDE=	EXAMPLES
 .endif
 
 DC1394_DESC=		IEEE 1394 camera support
 DC1394_LIB_DEPENDS=	libdc1394.so:multimedia/libdc1394
 DC1394_CMAKE_BOOL=	WITH_1394
 
-DOXYGEN_CMAKE_BOOL=	BUILD_DOCS BUILD_opencv_docs
-DOXYGEN_BUILD_DEPENDS=	doxygen:devel/doxygen \
-			py${PYTHON_DEFAULT:S/.//}-beautifulsoup>0:www/py-beautifulsoup
-
 EXAMPLES_CMAKE_BOOL=	BUILD_EXAMPLES
 
-# cf. https://software.intel.com/en-us/articles/intel-itt-api-open-source
-ITT_DESC=		Intel profiling API
-ITT_CMAKE_BOOL=		WITH_ITT
-
-NONFREE_DESC=		enable non free algorithms
-NONFREE_CMAKE_BOOL=	OPENCV_ENABLE_NONFREE
-
-VA_DESC=		libva support
-VA_LIB_DEPENDS=		libva.so:multimedia/libva
-VA_CMAKE_BOOL=		WITH_VA
-
-BLASLIB_DESC=		BLAS and LAPACK libraries
-
-ATLAS_USES=		blaslapack:atlas
-ATLAS_CMAKE_BOOL=	WITH_LAPACK
-
-NETLIB_USES=		blaslapack:netlib
-NETLIB_LIB_DEPENDS=	libcblas.so:math/cblas \
-			liblapacke.so:math/lapacke
-NETLIB_CMAKE_BOOL=	WITH_LAPACK
-NETLIB_VARS=		LDFLAGS+=-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFAULT} \
-			LDFLAGS+=${LOCALBASE}/lib/gcc${GCC_DEFAULT}/libgcc_s.so
-NETLIB_CMAKE_ARGS=	-DCMAKE_INSTALL_RPATH=${LOCALBASE}/lib;${LOCALBASE}/lib/gcc${GCC_DEFAULT}
-NETLIB_BUILD_DEPENDS=	${LOCALBASE}/lib/gcc${GCC_DEFAULT}/libgcc_s.so:lang/gcc${GCC_DEFAULT}
-NETLIB_RUN_DEPENDS=	${LOCALBASE}/lib/gcc${GCC_DEFAULT}/libgcc_s.so:lang/gcc${GCC_DEFAULT}
-
-OPENBLAS_USES=		blaslapack:openblas
-OPENBLAS_BUILD_DEPENDS=	${LOCALBASE}/include/cblas.h:math/cblas \
-			${LOCALBASE}/include/lapacke.h:math/lapacke
-OPENBLAS_CMAKE_BOOL=	WITH_LAPACK
-OPENBLAS_VARS=		${NETLIB_VARS}
-OPENBLAS_CMAKE_ARGS=	${NETLIB_CMAKE_ARGS}
-OPENBLAS_BUILD_DEPENDS+=	${NETLIB_BUILD_DEPENDS}
-OPENBLAS_RUN_DEPENDS=	${NETLIB_RUN_DEPENDS}
-
 PERFORMANCE_DESC=	Performance enhancing libraries
-
-COINMP_DESC=		CoinMP support
-COINMP_LIB_DEPENDS=	libClp.so:math/coinmp \
-			libClpSolver.so:math/coinmp \
-			libCoinUtils.so:math/coinmp
-COINMP_CMAKE_BOOL=	WITH_CLP
 
 EIGEN3_DESC=		Eigen 3 support
 EIGEN3_USES=		eigen:3
 EIGEN3_CMAKE_BOOL=	WITH_EIGEN
-
-NEON_DESC=		enable NEON instructions (arm or aarch64)
-NEON_CMAKE_BOOL=	ENABLE_NEON
 
 OPENCL_LIB_DEPENDS=	libOpenCL.so:devel/ocl-icd
 OPENCL_BUILD_DEPENDS=	opencl>=0:devel/opencl
 OPENCL_RUN_DEPENDS=	opencl>=0:devel/opencl
 OPENCL_CMAKE_BOOL=	WITH_OPENCL
 
-OPENMP_USES=		compiler:openmp
-OPENMP_CMAKE_BOOL=	WITH_OPENMP
-OPENMP_CXXFLAGS+=	-fopenmp
-
 TBB_DESC=		Parallel processing support via TBB
 TBB_LIB_DEPENDS=	libtbb.so:devel/tbb
 TBB_CMAKE_BOOL=		WITH_TBB
-
-VFPV3_DESC=		enable VFPv3-D32 instructions (arm or aarch64)
-VFPV3_CMAKE_BOOL=	ENABLE_VFPV3
 
 IMAGE_DESC=		Image format support
 
@@ -196,14 +131,14 @@ GDCM_DESC=		Open source DICOM library
 GDCM_LIB_DEPENDS=	libgdcmMSFF.so:devel/gdcm
 GDCM_CMAKE_BOOL=	WITH_GDCM
 
-OPENEXR_LIB_DEPENDS=	libHalf.so:graphics/ilmbase \
-			libIlmImf.so:graphics/openexr
 MFX_DESC=		Intel MediaSDK (aka Quick Sync Video)
 MFX_LIB_DEPENDS=	libmfx.so:multimedia/intel-media-sdk \
 			libva-drm.so:multimedia/libva
 MFX_CONFIGURE_ENV=	MFX_HOME="${LOCALBASE}"
 MFX_CMAKE_BOOL=		WITH_MFX
 
+OPENEXR_LIB_DEPENDS=	libHalf.so:graphics/ilmbase \
+			libIlmImf.so:graphics/openexr
 OPENEXR_CMAKE_BOOL=	WITH_OPENEXR
 
 PNG_LIB_DEPENDS=	libpng.so:graphics/png
@@ -214,15 +149,6 @@ TIFF_CMAKE_BOOL=	WITH_TIFF
 
 WEBP_LIB_DEPENDS=	libwebp.so:graphics/webp
 WEBP_CMAKE_BOOL=	WITH_WEBP
-
-HDR_DESC=		HDR support
-HDR_CMAKE_BOOL=		WITH_IMGCODEC_HDR
-
-SUNRASTER_DESC=		Sun raster image format support
-SUNRASTER_CMAKE_BOOL=	WITH_IMGCODEC_SUNRASTER
-
-PXM_DESC=		PNM (PBM, PGM, PPM) and PAM formats support
-PXM_CMAKE_BOOL=		WITH_IMGCODEC_PXM
 
 VIDEO_DESC=		Video support
 
@@ -269,15 +195,9 @@ EXTRA_MODULES_CMAKE_ARGS=	-DCMAKE_INSTALL_RPATH=${LOCALBASE}/lib;${LOCALBASE}/li
 EXTRA_MODULES_BUILD_DEPENDS=	${LOCALBASE}/lib/gcc${GCC_DEFAULT}/libgcc_s.so:lang/gcc${GCC_DEFAULT}
 EXTRA_MODULES_RUN_DEPENDS=	${LOCALBASE}/lib/gcc${GCC_DEFAULT}/libgcc_s.so:lang/gcc${GCC_DEFAULT}
 
-TESSERACT_DESC=			OCR engine (needed by contrib_text mod.)
-TESSERACT_LIB_DEPENDS=		libtesseract.so:graphics/tesseract
-
-TESTS_DESC=		Build and install tests
-TESTS_CMAKE_BOOL=	BUILD_PERF_TESTS BUILD_TESTS INSTALL_TESTS
-
 OCV_LIBDIR=		${LOCALBASE}/lib
 .if defined(OCV_CORE)
-.  for module in ${OCV_MODS} ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS} ${OCV_VTK_MODS}
+.  for module in ${OCV_MODS} ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS}
 CMAKE_OFF+=		BUILD_opencv_${module}
 .  endfor
 .elif defined(OCV_PYTHON)
@@ -309,19 +229,9 @@ CMAKE_OFF+=	BUILD_opencv_${module}
 CONFIGURE_ENV+=	JAVA_HOME="${JAVA_HOME}"
 INSTALL_WRKSRC=	${CONFIGURE_WRKSRC}/modules/java
 
-.elif defined(OCV_JS)
-CMAKE_BOOL=	BUILD_opencv_js
-# emscripten is not in the port. So, corresponding slave port does not exist.
-.  for module in apps python java calib3d flann highgui imgcodecs ml photo \
-		shape stitching superres ts videoio videostab viz
-CMAKE_OFF+=	BUILD_opencv_${module}
-.  endfor
-INSTALL_WRKSRC=	${CONFIGURE_WRKSRC}/modules/js
-
 .else
 EXAMPLES_CMAKE_BOOL+=	INSTALL_C_EXAMPLES
-# LIB_DEPENDS+=	libopencv_core.so.${DISTVERSION}:graphics/opencv${OCV_SUFFIX}-core
-.  for module in ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS} ${OCV_JS_MODS}
+.  for module in ${OCV_JAVA_MODS} ${OCV_PYTHON_MODS}
 CMAKE_OFF+=	BUILD_opencv_${module}
 .  endfor
 .endif
@@ -355,17 +265,6 @@ post-patch:
 		${WRKSRC}/CMakeLists.txt
 .endif
 	@${FIND} ${WRKSRC} -name '*.bak' -exec ${RM} {} \;
-
-post-build-DOXYGEN-on:
-.if !defined(OCV_SLAVE)
-	${MAKE_CMD} -C ${BUILD_WRKSRC} doc/doxygen_cpp
-	${MAKE_CMD} -C ${BUILD_WRKSRC} doc/doxygen
-	${MAKE_CMD} -C ${BUILD_WRKSRC} opencv_docs
-.elif defined(OCV_JAVA)
-	${MAKE_CMD} -C ${BUILD_WRKSRC} doxygen_javadoc
-.elif defined(OCV_PYTHON)
-	${MAKE_CMD} -C ${BUILD_WRKSRC} doxygen_python
-.endif
 
 post-install:
 .if !defined(OCV_SLAVE)
@@ -407,13 +306,6 @@ post-install:
 		${COPYTREE_SHARE} . ${STAGEDIR}${EXAMPLESDIR}/python
 .endif
 
-post-install-DOXYGEN-on:
-.if !defined(OCV_SLAVE)
-	${FIND} ${STAGEDIR}${DOCSDIR}/html -type d -empty -delete
-	${FIND} ${STAGEDIR}${DOCSDIR}/html -type f | \
-		${SED} -ne 's|${STAGEDIR}${PREFIX}/||p' >> ${TMPPLIST}
-.endif
-
 post-install-EXAMPLES-on:
 .if defined(OCV_JAVA)
 	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
@@ -422,10 +314,6 @@ post-install-EXAMPLES-on:
 .endif
 
 .include <bsd.port.pre.mk>
-
-.if ${PORT_OPTIONS:MOPENMP} && ${COMPILER_TYPE} == clang
-LIB_DEPENDS+=	libomp.so:devel/openmp
-.endif
 
 .if ${PORT_OPTIONS:MEXTRA_MODULES} && !defined(OCV_CORE)
 CMAKE_ARGS+=	-DOPENCV_EXTRA_MODULES_PATH=${WRKDIR}/opencv_contrib-${PORTVERSION}/modules
