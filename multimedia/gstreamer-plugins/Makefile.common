@@ -49,7 +49,6 @@ BAD_GST_ALL_PLUGINS+= \
 		nas \
 		neon \
 		ofa \
-		opencv \
 		opus \
 		resindvd \
 		rsvg \

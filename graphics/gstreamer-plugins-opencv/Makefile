@@ -10,4 +10,6 @@ GST_PLUGIN=	opencv
 
 MASTERDIR=	${.CURDIR}/../../multimedia/gstreamer-plugins
 
+BROKEN=		Incompatible with OpenCV 3.4.7
+
 .include "${MASTERDIR}/Makefile"
