@@ -53,9 +53,11 @@ SHEBANG_FILES=	${WRKSRC}/mkspecs/features/uikit/device_destinations.sh \
 		${WRKSRC}/mkspecs/features/data/mac/objc_namespace.sh
 USE_LDCONFIG=	${PREFIX}/${QT_LIBDIR_REL}
 
-post-patch:
-	${FIND} -name "*.cpp" ${WRKSSRC} | xargs ${REINPLACE_CMD} -e "s/Q_OS_LINUX/Q_OS_FREEBSD/g"
-	${FIND} -name "*.h" ${WRKSSRC} | xargs ${REINPLACE_CMD} -e "s/Q_OS_LINUX/Q_OS_FREEBSD/g"
+# post-patch:
+# 	TODO: is it useful ?
+# 	It builds up, but we have to look at the ones that are really necessary.
+#	${FIND} -name "*.cpp" ${WRKSSRC} | xargs ${REINPLACE_CMD} -e "s/Q_OS_LINUX/Q_OS_FREEBSD/g"
+#	${FIND} -name "*.h" ${WRKSSRC} | xargs ${REINPLACE_CMD} -e "s/Q_OS_LINUX/Q_OS_FREEBSD/g"
 
 # TODO: do this cleaner
 post-install:
