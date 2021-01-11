@@ -1803,11 +1803,13 @@
     SUBDIR += rubygem-actioncable50
     SUBDIR += rubygem-actioncable52
     SUBDIR += rubygem-actioncable60
+    SUBDIR += rubygem-actioncable61
     SUBDIR += rubygem-actionpack4
     SUBDIR += rubygem-actionpack5
     SUBDIR += rubygem-actionpack50
     SUBDIR += rubygem-actionpack52
     SUBDIR += rubygem-actionpack60
+    SUBDIR += rubygem-actionpack61
     SUBDIR += rubygem-activeresource
     SUBDIR += rubygem-activeresource4
     SUBDIR += rubygem-acts-as-taggable-on
@@ -1860,6 +1862,7 @@
     SUBDIR += rubygem-ethon
     SUBDIR += rubygem-eventmachine_httpserver
     SUBDIR += rubygem-faraday
+    SUBDIR += rubygem-faraday-net_http
     SUBDIR += rubygem-faraday0
     SUBDIR += rubygem-faraday_middleware
     SUBDIR += rubygem-faraday_middleware0
@@ -1967,7 +1970,12 @@
     SUBDIR += rubygem-mousetrap-rails
     SUBDIR += rubygem-multipart-post
     SUBDIR += rubygem-nanoc
+    SUBDIR += rubygem-nanoc-checking
+    SUBDIR += rubygem-nanoc-cli
+    SUBDIR += rubygem-nanoc-core
+    SUBDIR += rubygem-nanoc-deploying
     SUBDIR += rubygem-nested_form
+    SUBDIR += rubygem-net-http
     SUBDIR += rubygem-net-http-digest_auth
     SUBDIR += rubygem-net-http-persistent
     SUBDIR += rubygem-net-http-persistent2
@@ -2015,6 +2023,7 @@
     SUBDIR += rubygem-rails50
     SUBDIR += rubygem-rails52
     SUBDIR += rubygem-rails60
+    SUBDIR += rubygem-rails61
     SUBDIR += rubygem-rails_12factor
     SUBDIR += rubygem-rails_autolink
     SUBDIR += rubygem-rails_serve_static_assets
@@ -2024,6 +2033,7 @@
     SUBDIR += rubygem-railties50
     SUBDIR += rubygem-railties52
     SUBDIR += rubygem-railties60
+    SUBDIR += rubygem-railties61
     SUBDIR += rubygem-raindrops
     SUBDIR += rubygem-ramaze
     SUBDIR += rubygem-raphael-rails
@@ -2182,6 +2192,7 @@
     SUBDIR += tomcat85
     SUBDIR += tomcat9
     SUBDIR += tomee
+    SUBDIR += trac-devel
     SUBDIR += trafficserver
     SUBDIR += transmission-web
     SUBDIR += transproxy
@@ -2281,7 +2292,6 @@
     SUBDIR += wsdlpull
     SUBDIR += wsmake
     SUBDIR += wt
-    SUBDIR += wt3
     SUBDIR += wuzz
     SUBDIR += wwwoffle
     SUBDIR += xapian-omega

@@ -1503,10 +1503,12 @@
     SUBDIR += ruby-rd-mode.el
     SUBDIR += ruby-rdtool
     SUBDIR += ruby-rttool
+    SUBDIR += rubygem-abbrev
     SUBDIR += rubygem-actionpack-xml_parser-rails5
     SUBDIR += rubygem-actionpack-xml_parser-rails52
     SUBDIR += rubygem-actionpack-xml_parser1-rails4
     SUBDIR += rubygem-actiontext60
+    SUBDIR += rubygem-actiontext61
     SUBDIR += rubygem-albino
     SUBDIR += rubygem-amatch
     SUBDIR += rubygem-asciidoctor
@@ -1605,6 +1607,7 @@
     SUBDIR += rubygem-liquid
     SUBDIR += rubygem-liquid-tag-parser
     SUBDIR += rubygem-liquid-tag-parser1
+    SUBDIR += rubygem-liquid4
     SUBDIR += rubygem-loggability
     SUBDIR += rubygem-loofah
     SUBDIR += rubygem-ltsv
@@ -1632,6 +1635,7 @@
     SUBDIR += rubygem-rails-dom-testing-rails50
     SUBDIR += rubygem-rails-dom-testing-rails52
     SUBDIR += rubygem-rails-dom-testing-rails60
+    SUBDIR += rubygem-rails-dom-testing-rails61
     SUBDIR += rubygem-rails-dom-testing1
     SUBDIR += rubygem-rails-html-sanitizer
     SUBDIR += rubygem-rak
@@ -1673,6 +1677,7 @@
     SUBDIR += rubygem-sass-rails-rails50
     SUBDIR += rubygem-sass-rails-rails52
     SUBDIR += rubygem-sass-rails-rails60
+    SUBDIR += rubygem-sass-rails-rails61
     SUBDIR += rubygem-sass32
     SUBDIR += rubygem-sass34
     SUBDIR += rubygem-sassc
@@ -1681,6 +1686,7 @@
     SUBDIR += rubygem-sassc-rails-rails50
     SUBDIR += rubygem-sassc-rails-rails52
     SUBDIR += rubygem-sassc-rails-rails60
+    SUBDIR += rubygem-sassc-rails-rails61
     SUBDIR += rubygem-sassc22
     SUBDIR += rubygem-sax-machine
     SUBDIR += rubygem-scss_lint

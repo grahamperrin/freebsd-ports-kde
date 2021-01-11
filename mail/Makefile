@@ -505,7 +505,9 @@
     SUBDIR += py-postfix-mta-sts-resolver
     SUBDIR += py-premailer
     SUBDIR += py-pymailq
+    SUBDIR += py-pysasl
     SUBDIR += py-pyspf
+    SUBDIR += py-python-slimta
     SUBDIR += py-pyzmail
     SUBDIR += py-spf-engine
     SUBDIR += py-validate_email
@@ -563,11 +565,13 @@
     SUBDIR += rspamd-devel
     SUBDIR += rss2email3
     SUBDIR += rubygem-actionmailbox60
+    SUBDIR += rubygem-actionmailbox61
     SUBDIR += rubygem-actionmailer4
     SUBDIR += rubygem-actionmailer5
     SUBDIR += rubygem-actionmailer50
     SUBDIR += rubygem-actionmailer52
     SUBDIR += rubygem-actionmailer60
+    SUBDIR += rubygem-actionmailer61
     SUBDIR += rubygem-email_reply_parser
     SUBDIR += rubygem-email_reply_parser-discourse
     SUBDIR += rubygem-email_reply_trimmer
@@ -578,6 +582,9 @@
     SUBDIR += rubygem-mailboxer
     SUBDIR += rubygem-mailfactory
     SUBDIR += rubygem-mini_mime
+    SUBDIR += rubygem-net-imap
+    SUBDIR += rubygem-net-pop
+    SUBDIR += rubygem-net-smtp
     SUBDIR += rubygem-pony
     SUBDIR += rubygem-premailer
     SUBDIR += rubygem-premailer-rails
