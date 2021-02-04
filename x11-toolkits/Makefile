@@ -84,7 +84,6 @@
     SUBDIR += libwnck
     SUBDIR += libwnck3
     SUBDIR += libxaw3dxft
-    SUBDIR += libxfce4gui
     SUBDIR += linux-c7-gtk2
     SUBDIR += linux-c7-gtk3
     SUBDIR += linux-c7-openmotif
@@ -100,6 +99,7 @@
     SUBDIR += nanogui
     SUBDIR += neXtaw
     SUBDIR += ntk
+    SUBDIR += nuklear
     SUBDIR += ocaml-lablgtk2
     SUBDIR += ocaml-labltk
     SUBDIR += open-motif

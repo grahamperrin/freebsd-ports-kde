@@ -47,11 +47,11 @@ FIREBIRD_DEFAULT?=	2.5
 FORTRAN_DEFAULT?=	gfortran
 # Possible values: 3.2.0
 FPC_DEFAULT?=		3.2.0
-# Possible values: 8, 9 (powerpcspe was dropped with GCC 9)
+# Possible values: 8, 9 (powerpcspe was dropped with GCC 9), 10
 .if ${ARCH} == "powerpcspe"
 GCC_DEFAULT?=		8
 .else
-GCC_DEFAULT?=		9
+GCC_DEFAULT?=		10
 .endif
 # Possible values: 7, 8, 9, agpl
 GHOSTSCRIPT_DEFAULT?=	agpl
@@ -69,7 +69,7 @@ LIBRSVG2_DEFAULT?=	legacy
 .endif
 # Possible values: c7
 LINUX_DEFAULT?=		c7
-# Possible values: 60, 70, 80, 90, -devel (to be used when non-base compiler is required)
+# Possible values: 60, 70, 80, 90, 10, 11, -devel (to be used when non-base compiler is required)
 # Please give notice to the Graphics Team (x11@FreeBSD.org) in advance before 
 # bumping the LLVM version.
 LLVM_DEFAULT?=		90
@@ -96,7 +96,7 @@ PERL5_DEFAULT:=		${_PERL5_FROM_BIN:R}
 .endif
 # Possible values: 9.5, 9.6, 10, 11, 12, 13
 PGSQL_DEFAULT?=		12
-# Possible values: 7.2, 7.3, 7.4
+# Possible values: 7.3, 7.4 8.0
 PHP_DEFAULT?=		7.4
 # Possible values: 2.7, 3.6, 3.7, 3.8, 3.9
 PYTHON_DEFAULT?=	3.7

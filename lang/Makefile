@@ -70,6 +70,7 @@
     SUBDIR += f2c
     SUBDIR += fasm
     SUBDIR += ferite
+    SUBDIR += fennel
     SUBDIR += ficl
     SUBDIR += fpc
     SUBDIR += fpc-base
@@ -126,7 +127,6 @@
     SUBDIR += guile1
     SUBDIR += guile2
     SUBDIR += halide
-    SUBDIR += harbour
     SUBDIR += haskell-mode.el
     SUBDIR += hermes
     SUBDIR += hla
@@ -143,8 +143,6 @@
     SUBDIR += janet
     SUBDIR += jimtcl
     SUBDIR += jruby
-    SUBDIR += julia
-    SUBDIR += julia10
     SUBDIR += jython
     SUBDIR += kawa
     SUBDIR += kf5-kross
@@ -184,10 +182,10 @@
     SUBDIR += mlton
     SUBDIR += mmix
     SUBDIR += mono
+    SUBDIR += mono-basic
     SUBDIR += mono5.10
     SUBDIR += mono5.20
     SUBDIR += mono6.8
-    SUBDIR += mono-basic
     SUBDIR += mosh
     SUBDIR += mosml
     SUBDIR += mtasc
@@ -258,8 +256,6 @@
     SUBDIR += pfe
     SUBDIR += pharo
     SUBDIR += php-mode.el
-    SUBDIR += php72
-    SUBDIR += php72-extensions
     SUBDIR += php73
     SUBDIR += php73-extensions
     SUBDIR += php74
@@ -339,7 +335,6 @@
     SUBDIR += solidity
     SUBDIR += spidermonkey17
     SUBDIR += spidermonkey185
-    SUBDIR += spidermonkey24
     SUBDIR += spidermonkey52
     SUBDIR += spidermonkey60
     SUBDIR += spidermonkey78

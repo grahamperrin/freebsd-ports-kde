@@ -11,9 +11,7 @@ COMMENT=	Python 3.4 Enum dummy no-op package
 
 LICENSE=	MIT
 
-RUN_DEPENDS=	${PY_ENUM34}
-
-USES=		python
+USES=		python:3.6+
 USE_PYTHON=	autoplist concurrent distutils
 
 NO_ARCH=	yes

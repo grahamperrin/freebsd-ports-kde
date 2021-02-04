@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME?=	gitlab-shell
-PORTVERSION?=	13.13.0
+PORTVERSION?=	13.15.0
 PORTREVISION?=	0
 CATEGORIES=	devel
 
@@ -20,7 +20,7 @@ ALL_TARGET=	build
 USE_GITLAB=	yes
 GL_ACCOUNT?=	gitlab-org
 # Find the commit hash here: https://gitlab.com/gitlab-org/gitlab-shell/tags
-GL_COMMIT?=	3f9890ef73dced430d86801a1efc0e93ec50890e
+GL_COMMIT?=	99d0bbe8ab3e9fa8368ac6efd24b2e961d2fe8e3
 
 USERS=		git
 GROUPS=		git

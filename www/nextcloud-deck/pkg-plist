@@ -37,10 +37,12 @@
 %%WWWDIR%%/img/reply.svg
 %%WWWDIR%%/img/toggle-view-collapse.svg
 %%WWWDIR%%/img/toggle-view-expand.svg
-%%WWWDIR%%/js/3.js
-%%WWWDIR%%/js/3.js.map
 %%WWWDIR%%/js/4.js
 %%WWWDIR%%/js/4.js.map
+%%WWWDIR%%/js/5.js
+%%WWWDIR%%/js/5.js.map
+%%WWWDIR%%/js/calendar.js
+%%WWWDIR%%/js/calendar.js.map
 %%WWWDIR%%/js/collections.js
 %%WWWDIR%%/js/collections.js.map
 %%WWWDIR%%/js/dashboard.js
@@ -287,7 +289,6 @@
 %%WWWDIR%%/lib/Listeners/BeforeTemplateRenderedListener.php
 %%WWWDIR%%/lib/Middleware/DefaultBoardMiddleware.php
 %%WWWDIR%%/lib/Middleware/ExceptionMiddleware.php
-%%WWWDIR%%/lib/Migration/UnknownUsers.php
 %%WWWDIR%%/lib/Migration/Version1000Date20200306161713.php
 %%WWWDIR%%/lib/Migration/Version1000Date20200308073933.php
 %%WWWDIR%%/lib/Migration/Version10200Date20201111150114.php
@@ -315,6 +316,8 @@
 %%WWWDIR%%/lib/Service/PermissionService.php
 %%WWWDIR%%/lib/Service/StackService.php
 %%WWWDIR%%/lib/StatusException.php
+%%WWWDIR%%/psalm.xml
+%%WWWDIR%%/relativeci.config.js
 %%WWWDIR%%/stylelint.config.js
 %%WWWDIR%%/templates/main.php
 %%WWWDIR%%/vendor/autoload.php
@@ -372,6 +375,7 @@
 %%WWWDIR%%/vendor/cogpowered/finediff/tests/Usage/Resources/word/simple.txt
 %%WWWDIR%%/vendor/cogpowered/finediff/tests/Usage/SimpleTest.php
 %%WWWDIR%%/vendor/composer/ClassLoader.php
+%%WWWDIR%%/vendor/composer/InstalledVersions.php
 %%WWWDIR%%/vendor/composer/LICENSE
 %%WWWDIR%%/vendor/composer/autoload_classmap.php
 %%WWWDIR%%/vendor/composer/autoload_namespaces.php
@@ -379,4 +383,6 @@
 %%WWWDIR%%/vendor/composer/autoload_real.php
 %%WWWDIR%%/vendor/composer/autoload_static.php
 %%WWWDIR%%/vendor/composer/installed.json
+%%WWWDIR%%/vendor/composer/installed.php
+%%WWWDIR%%/vendor/composer/platform_check.php
 %%WWWDIR%%/webpack.js

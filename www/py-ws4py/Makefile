@@ -4,7 +4,7 @@
 PORTNAME=	ws4py
 PORTVERSION=	0.3.4
 CATEGORIES=	www python
-MASTER_SITES=	http://www.defuze.org/oss/${PORTNAME}/
+MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	wg@FreeBSD.org
@@ -12,7 +12,7 @@ COMMENT=	WebSocket package for Python
 
 LICENSE=	BSD3CLAUSE
 
-USES=		python
+USES=		python:3.6+
 USE_PYTHON=	distutils autoplist
 
 NO_ARCH=	yes

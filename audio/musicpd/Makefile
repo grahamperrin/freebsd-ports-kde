@@ -1,8 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	musicpd
-PORTVERSION=	0.22.3
-PORTREVISION=	2
+PORTVERSION=	0.22.4
 CATEGORIES=	audio
 MASTER_SITES=	https://www.musicpd.org/download/mpd/${PORTVERSION:R}/
 DISTNAME=	mpd-${PORTVERSION}
@@ -17,7 +16,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/sphinx-build:textproc/py-sphinx@${PY_FLAVOR}
 LIB_DEPENDS=	libboost_iostreams.so:devel/boost-libs \
 		libicudata.so:devel/icu
 
-USES=		compiler:c++17-lang gnome localbase:ldflags meson pkgconfig \
+USES=		compiler:c++17-lang localbase:ldflags meson pkgconfig \
 		python:build tar:xz
 
 USE_GNOME=	glib20
@@ -50,7 +49,7 @@ OPTIONS_MULTI=	DOCUMENTATION FILE_FORMAT
 OPTIONS_MULTI_FILE_FORMAT=	\
 			ADPLUG AUDIOFILE FAAD FFMPEG FLAC FLUIDSYNTH \
 			GME MAD MIKMOD MODPLUG MPG123 MUSEPACK \
-			OPUS SIDPLAY2 SNDFILE TWOLAME \
+			OPUS SIDPLAY SNDFILE TWOLAME \
 			VORBIS WAVPACK WILDMIDI
 
 OPTIONS_GROUP=	ACCESS PLAYBACK
@@ -69,7 +68,7 @@ PROXYDB_DESC=	Proxy database support via libmpdclient
 LAME_DESC=	Support for MP3 Icecast Streams
 PLAYLISTS_DESC=	Enable extra playlist support (wma, RSS)
 QOBUZ_DESC=	Streaming service support: Qobuz
-SIDPLAY2_DESC=	Sidplay support (C64 mono and stereo files)
+SIDPLAY_DESC=	Sidplay support (C64 mono and stereo files)
 SMB_DESC=	SMB network support (currently strongly discouraged)
 SOUNDCLOUD_DESC=Streaming service support: SoundCloud
 TIDAL_DESC=	Streaming service support: TIDAL (currently defunct)
@@ -116,9 +115,9 @@ OPUS_LIB_DEPENDS=	libopus.so:audio/opus \
 			libogg.so:audio/libogg
 PLAYLISTS_MESON_ENABLED=expat
 PLAYLISTS_LIB_DEPENDS=	libexpat.so:textproc/expat2
-SIDPLAY2_MESON_ENABLED=	sidplay
-SIDPLAY2_LIB_DEPENDS=	libsidplay2.so:audio/libsidplay2
-SIDPLAY2_LDFLAGS=	-L${LOCALBASE}/lib/sidplay/builders
+SIDPLAY_MESON_ENABLED=	sidplay
+SIDPLAY_LIB_DEPENDS=	libsidplayfp.so:audio/libsidplayfp
+SIDPLAY_CXXFLAGS=	-D_LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR
 SNDFILE_MESON_ENABLED=	sndfile
 SNDFILE_LIB_DEPENDS=	libsndfile.so:audio/libsndfile
 VORBIS_MESON_ENABLED=	vorbis

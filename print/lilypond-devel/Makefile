@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lilypond
-DISTVERSION=	2.21.81
+DISTVERSION=	2.23.0
 CATEGORIES=	print audio
 MASTER_SITES=	http://lilypond.org/download/source/v${DISTVERSION:R}/
 PKGNAMESUFFIX=	-devel
@@ -39,8 +39,7 @@ USE_PERL5=	build
 USE_TEX=	latex texmf
 
 GNU_CONFIGURE=		yes
-CONFIGURE_ARGS+=	--with-texgyre-dir=${LOCALBASE}/${TEXMFDISTDIR}/fonts/opentype/public/tex-gyre \
-			--without-urwotf-dir
+CONFIGURE_ARGS+=	--with-texgyre-dir=${LOCALBASE}/${TEXMFDISTDIR}/fonts/opentype/public/tex-gyre
 CONFIGURE_ENV+=		ac_cv_prog_MAKEINFO="${LOCALBASE}/bin/makeinfo" \
 			FLEX=${FLEX} \
 			HOME=${WRKDIR} \
@@ -51,8 +50,7 @@ ALL_TARGET=	all
 
 BINARY_ALIAS=	python=${PYTHON_VERSION}
 
-INFO=		internals \
-				lilypond-changes \
+INFO=		lilypond-changes \
 				lilypond-contributor \
 				lilypond-essay \
 				lilypond-extending \
@@ -61,14 +59,20 @@ INFO=		internals \
 				lilypond-notation \
 				lilypond-snippets \
 				lilypond-usage \
-				lilypond-web \
 				music-glossary
 PLIST_SUB=	DISTVERSION=${DISTVERSION}
 
-OPTIONS_DEFINE=	NLS
+OPTIONS_DEFINE=	URW NLS
 OPTIONS_SUB=	yes
 
+URW_DESC=	Use bundled URW fonts
+
 NLS_USES=	gettext
+
+URW_BUILD_DEPENDS=	urw-core35-fonts>0:x11-fonts/urw-core35-fonts
+URW_RUN_DEPENDS_OFF=	urw-core35-fonts>0:x11-fonts/urw-core35-fonts
+
+URW_CONFIGURE_WITH=	urwotf-dir=${LOCALBASE}/share/fonts/urw-core35-fonts
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|<FlexLexer.h>|"/usr/include/FlexLexer.h"|' \

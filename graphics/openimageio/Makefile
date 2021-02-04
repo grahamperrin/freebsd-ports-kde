@@ -3,7 +3,7 @@
 
 PORTNAME=	openimageio
 DISTVERSIONPREFIX=	Release-
-DISTVERSION=	2.2.6.1
+DISTVERSION=	2.2.10.1
 # PORTREVISION must be set with ?= so as not to stomp over
 # py-openimageio's PORTREVISION.
 # Also, just to be on the safe side, when resetting,
@@ -72,7 +72,7 @@ OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio
 
 OPENCV_CMAKE_BOOL=	USE_OPENCV
 OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv \
-			libopencv_core.so:graphics/opencv-core \
+			libopencv_core.so:graphics/opencv \
 			libopenjpeg.so:graphics/openjpeg15
 
 OPENJPEG_CMAKE_BOOL=	USE_OPENJPEG
@@ -110,7 +110,7 @@ post-patch:
 BUILD_DEPENDS+=	${PREFIX}/share/cmake/pybind11/pybind11Config.cmake:devel/pybind11
 LIB_DEPENDS+=	libOpenImageIO.so:graphics/openimageio
 PLIST=		${PKGDIR}/pkg-plist-pybind
-USES+=		python
+USES+=		python:3.6+
 USE_PYTHON=	flavors
 CMAKE_ON+=	USE_PYTHON
 # we don't need the apps built - only libs.

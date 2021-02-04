@@ -29,6 +29,7 @@
     SUBDIR += calendar
     SUBDIR += calendar-data
     SUBDIR += calibre
+    SUBDIR += calindori
     SUBDIR += cartotheque
     SUBDIR += cfiles
     SUBDIR += charmtimetracker
@@ -47,6 +48,7 @@
     SUBDIR += dstask
     SUBDIR += easystroke
     SUBDIR += egroupware
+    SUBDIR += elementary-calendar
     SUBDIR += fasd
     SUBDIR += fbreader
     SUBDIR += fet
@@ -135,6 +137,7 @@
     SUBDIR += kmail
     SUBDIR += kmail-account-wizard
     SUBDIR += knotes
+    SUBDIR += kongress
     SUBDIR += kontact
     SUBDIR += korganizer
     SUBDIR += kruler
@@ -171,7 +174,6 @@
     SUBDIR += noti
     SUBDIR += notification-daemon
     SUBDIR += notify-osd
-    SUBDIR += orage
     SUBDIR += osmo
     SUBDIR += owncloudclient
     SUBDIR += p5-Data-ICal
@@ -250,7 +252,6 @@
     SUBDIR += xfce4-notes-plugin
     SUBDIR += xfce4-notifyd
     SUBDIR += xfce4-tumbler
-    SUBDIR += xfce4-volumed
     SUBDIR += xfce4-volumed-pulse
     SUBDIR += xfce4-xkb-plugin
     SUBDIR += xmdiary

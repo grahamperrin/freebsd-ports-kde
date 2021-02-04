@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	openzfs
-PORTVERSION=	2020120100
+PORTVERSION=	2021012500
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -11,6 +11,7 @@ COMMENT=	OpenZFS userland for FreeBSD
 LICENSE=	CDDL
 
 BROKEN_aarch64=	invokes x86 assembler
+BROKEN_riscv64=	fails to compile: btree_test.c:462:49: result of comparison of constant -1 with expression of type 'char' is always true
 
 RUN_DEPENDS=	openzfs-kmod>=0:sysutils/openzfs-kmod
 
@@ -27,7 +28,7 @@ OPTIONS_SUB=	yes
 USE_GITHUB=	yes
 GH_ACCOUNT=	openzfs
 GH_PROJECT=	zfs
-GH_TAGNAME=	aa2778d10
+GH_TAGNAME=	fd95af8dd
 
 .include <bsd.port.pre.mk>
 

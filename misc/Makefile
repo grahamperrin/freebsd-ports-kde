@@ -65,6 +65,7 @@
     SUBDIR += cs
     SUBDIR += cstream
     SUBDIR += ctm
+    SUBDIR += cxxmatrix
     SUBDIR += dahdi
     SUBDIR += dahdi-kmod
     SUBDIR += dahdi-kmod26
@@ -83,6 +84,7 @@
     SUBDIR += dynomite
     SUBDIR += e2fsprogs-libblkid
     SUBDIR += e2fsprogs-libuuid
+    SUBDIR += edflib
     SUBDIR += elixir-mime
     SUBDIR += elixir-uuid
     SUBDIR += elki
@@ -354,7 +356,6 @@
     SUBDIR += pecl-timezonedb
     SUBDIR += perkeep
     SUBDIR += pfm
-    SUBDIR += php72-calendar
     SUBDIR += php73-calendar
     SUBDIR += php74-calendar
     SUBDIR += php80-calendar
@@ -370,6 +371,7 @@
     SUBDIR += py-QSpectrumAnalyzer
     SUBDIR += py-SimpleSoapy
     SUBDIR += py-SoapySDR
+    SUBDIR += py-alive-progress
     SUBDIR += py-cinder
     SUBDIR += py-colorbrewer
     SUBDIR += py-colored
@@ -383,6 +385,7 @@
     SUBDIR += py-gluonnlp
     SUBDIR += py-huepy
     SUBDIR += py-kartograph
+    SUBDIR += py-mffpy
     SUBDIR += py-molequeue
     SUBDIR += py-mxnet
     SUBDIR += py-onnx
@@ -397,6 +400,7 @@
     SUBDIR += py-powerline-status
     SUBDIR += py-progressbar
     SUBDIR += py-progressbar2
+    SUBDIR += py-pyEDFlib
     SUBDIR += py-pyfiglet
     SUBDIR += py-pykml
     SUBDIR += py-pyprind
@@ -425,6 +429,7 @@
     SUBDIR += qt5ct
     SUBDIR += qt6-doc
     SUBDIR += qtchooser
+    SUBDIR += quantum++
     SUBDIR += raspberrypi-gpioshutdown
     SUBDIR += raspberrypi-userland
     SUBDIR += raspbsd-led
@@ -482,6 +487,7 @@
     SUBDIR += teseq
     SUBDIR += thefuck
     SUBDIR += thrill
+    SUBDIR += timezonemap
     SUBDIR += tkcron
     SUBDIR += tkinfo
     SUBDIR += tkregexp
@@ -520,6 +526,7 @@
     SUBDIR += with
     SUBDIR += wmScoreBoard
     SUBDIR += wmcalendar
+    SUBDIR += wmforecast
     SUBDIR += wmjulia
     SUBDIR += wmpal
     SUBDIR += wmtunlo

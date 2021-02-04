@@ -12,7 +12,7 @@ AWS_AUTH_GH_TUPLE=	anomalizer:ngx_aws_auth:692263b:aws_auth
 AWS_AUTH_VARS=		DSO_EXTMODS+=aws_auth
 
 BROTLI_LIB_DEPENDS=	libbrotlicommon.so:archivers/brotli
-BROTLI_GH_TUPLE=	eustas:ngx_brotli:8104036:brotli
+BROTLI_GH_TUPLE=	eustas:ngx_brotli:7fab041:brotli
 BROTLI_VARS=		DSO_EXTMODS+=brotli
 
 CACHE_PURGE_GH_TUPLE=		nginx-modules:ngx_cache_purge:23dc16a:cache_purge
@@ -21,7 +21,7 @@ CACHE_PURGE_CONFIGURE_ON=	--add-module=${WRKDIR}/ngx_cache_purge-23dc16a
 CLOJURE_CATEGORIES+=	java
 CLOJURE_USE=		JAVA=yes JAVA_OS=native JAVA_VERSION=1.8 \
 			JAVA_VENDOR=openjdk JAVA_BUILD=yes JAVA_RUN=yes
-CLOJURE_GH_TUPLE=	nginx-clojure:nginx-clojure:v0.5.1:clojure
+CLOJURE_GH_TUPLE=	nginx-clojure:nginx-clojure:v0.5.2:clojure
 CLOJURE_CONFIGURE_ENV=	"JNI_INCS=-I${LOCALBASE}/openjdk8/include -I${LOCALBASE}/openjdk8/include/freebsd"
 CLOJURE_VARS=		DSO_EXTMODS+=clojure CLOJURE_SUBDIR=/src/c
 
@@ -93,6 +93,7 @@ HTTP_DAV_EXT_IMPLIES=		HTTP_DAV
 HTTP_DAV_EXT_LIB_DEPENDS=	libexpat.so:textproc/expat2
 HTTP_DAV_EXT_GH_TUPLE=		arut:nginx-dav-ext-module:v3.0.0:dav_ext
 HTTP_DAV_EXT_VARS=		DSO_EXTMODS+=dav_ext
+HTTP_DAV_EXT_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-ngx_http_dav_ext_module.c
 
 HTTP_EVAL_GH_TUPLE=		openresty:nginx-eval-module:582bd25:eval
 HTTP_EVAL_VARS=			DSO_EXTMODS+=eval
@@ -140,9 +141,10 @@ HTTP_NOTICE_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-ngx_http_notice_module.c \
 				${PATCHDIR}/extra-patch-nginx-notice-config
 HTTP_NOTICE_VARS=		DSO_EXTMODS+=notice
 
-HTTP_PUSH_GH_TUPLE=		slact:nchan:v1.1.14:push
+HTTP_PUSH_GH_TUPLE=		slact:nchan:v1.2.7:push
 HTTP_PUSH_VARS=			DSO_EXTMODS+=push
-HTTP_PUSH_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-nchan-store-private.h
+HTTP_PUSH_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-nchan-store-private.h \
+				${PATCHDIR}/extra-patch-nchan-store-redis-redis_lua_commands.h
 
 HTTP_PUSH_STREAM_GH_TUPLE=	wandenberg:nginx-push-stream-module:0.5.4:pushstream
 HTTP_PUSH_STREAM_VARS=		DSO_EXTMODS+=pushstream
@@ -275,11 +277,11 @@ RDS_JSON_VARS=		DSO_EXTMODS+=rdsjson
 REDIS2_GH_TUPLE=	openresty:redis2-nginx-module:v0.15:redis2
 REDIS2_VARS=		DSO_EXTMODS+=redis2
 
-RTMP_GH_TUPLE=		ut0mt8:nginx-rtmp-module:f0ea623:rtmp
+RTMP_GH_TUPLE=		ut0mt8:nginx-rtmp-module:791b613:rtmp
 RTMP_VARS=		DSO_EXTMODS+=rtmp
 
 SET_MISC_IMPLIES=	DEVEL_KIT
-SET_MISC_GH_TUPLE=	openresty:set-misc-nginx-module:cda7e50:setmisc
+SET_MISC_GH_TUPLE=	openresty:set-misc-nginx-module:4667684:setmisc
 SET_MISC_VARS=		DSO_EXTMODS+=setmisc
 
 SFLOW_GH_TUPLE=		sflow:nginx-sflow-module:543c72a:sflow
@@ -287,7 +289,7 @@ SFLOW_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-ngx_http_sflow_config.c \
 			${PATCHDIR}/extra-patch-ngx_http_sflow_config.h \
 			${PATCHDIR}/extra-patch-ngx_http_sflow_module.c
 
-SHIBBOLETH_GH_TUPLE=	nginx-shib:nginx-http-shibboleth:f07bf3c:shibboleth
+SHIBBOLETH_GH_TUPLE=	nginx-shib:nginx-http-shibboleth:a386c18:shibboleth
 SHIBBOLETH_VARS=	DSO_EXTMODS+=shibboleth
 
 SLOWFS_CACHE_GH_TUPLE=	baysao:ngx_slowfs_cache:d011a18:slowfs_cache
@@ -298,7 +300,7 @@ SMALL_LIGHT_LIB_DEPENDS=	libMagickWand-6.so:graphics/ImageMagick6 \
 SMALL_LIGHT_GH_TUPLE=		cubicdaiya:ngx_small_light:v0.9.2:small_light
 SMALL_LIGHT_VARS=		DSO_EXTMODS+=small_light
 
-SRCACHE_GH_TUPLE=	openresty:srcache-nginx-module:v0.31:srcache
+SRCACHE_GH_TUPLE=	openresty:srcache-nginx-module:v0.32:srcache
 SRCACHE_VARS=		DSO_EXTMODS+=srcache
 
 VOD_GH_TUPLE=		kaltura:nginx-vod-module:1.23:vod

@@ -6,7 +6,8 @@
     SUBDIR += R-cran-RCurl
     SUBDIR += R-cran-curl
     SUBDIR += axel
-    SUBDIR += bbftp
+    SUBDIR += bbftp-client
+    SUBDIR += bbftp-server
     SUBDIR += bftpd
     SUBDIR += bsdftpd-ssl
     SUBDIR += cmdftp
@@ -56,8 +57,6 @@
     SUBDIR += pear-Net_FTP
     SUBDIR += pftpd
     SUBDIR += php-fastdfs
-    SUBDIR += php72-curl
-    SUBDIR += php72-ftp
     SUBDIR += php73-curl
     SUBDIR += php73-ftp
     SUBDIR += php74-curl
@@ -81,6 +80,7 @@
     SUBDIR += quftp
     SUBDIR += rexx-curl
     SUBDIR += rubygem-curb
+    SUBDIR += rubygem-net-ftp
     SUBDIR += smbftpd
     SUBDIR += spegla
     SUBDIR += tftp-hpa

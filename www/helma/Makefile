@@ -15,12 +15,16 @@ COMMENT=	Web application framework for fast and efficient scripting
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKBASE}/licenses/license.txt
 
+DEPRECATED=	Upstream is basically dead and recommends ringojs.org
+EXPIRATION_DATE=2021-02-28
+
 WRKBASE=	${WRKDIR}/${PORTNAME}-${PORTVERSION}
 WRKSRC=		${WRKBASE}
 DATADIR=	${JAVASHAREDIR}/${PORTNAME}
 
 USE_RC_SUBR=	helma
 USE_JAVA=	yes
+JAVA_VERSION=	8
 USE_ANT=	yes
 ALL_TARGET=	clean jar
 NO_ARCH=	yes
