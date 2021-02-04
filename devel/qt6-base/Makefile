@@ -12,7 +12,7 @@ MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt base (core, gui, widgets, network,...)
 
 BUILD_DEPENDS=	xml:textproc/xmlstarlet \
-		 ${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers
+		 ${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers
 LIB_DEPENDS=	libcups.so:print/cups \
 		libdrm.so:graphics/libdrm \
 		libfontconfig.so:x11-fonts/fontconfig \
