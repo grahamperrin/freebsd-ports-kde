@@ -8,7 +8,7 @@ PKGNAMEPREFIX=	qt6-
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt declarative framework for dynamic user interfaces
 
-BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers \
+BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers \
 		llvm${LLVM_DEFAULT}>0:devel/llvm${LLVM_DEFAULT}
 LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader \
 		libLLVM.so:devel/llvm${LLVM_DEFAULT}

@@ -8,7 +8,7 @@ PKGNAMEPREFIX=	qt6-
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt declarative framework for dynamic user interfaces
 
-BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers
+BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers
 
 USES=		cmake compiler:c++17-lang gl python:3.5+ \
 		qt-dist:6

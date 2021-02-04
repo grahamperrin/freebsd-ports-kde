@@ -8,7 +8,7 @@ PKGNAMEPREFIX=	qt6-
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Provides a high-level API for creating 3D content or UIs based on Qt Quick
 
-BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers
+BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers
 
 USES=		cmake compiler:c++17-lang gl python:build \
 		qt-dist:6

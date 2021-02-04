@@ -9,7 +9,7 @@ MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt6 wrapper for Wayland
 
 LIB_DEPENDS=	libwayland-client.so:graphics/wayland
-BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers
+BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers
 USES=		cmake compiler:c++17-lang gl \
 		qt-dist:6
 USE_GL=		gl egl
