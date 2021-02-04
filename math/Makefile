@@ -859,6 +859,7 @@
     SUBDIR += py-spglm
     SUBDIR += py-spint
     SUBDIR += py-splot
+    SUBDIR += py-spopt
     SUBDIR += py-spot
     SUBDIR += py-spreg
     SUBDIR += py-spvcm
@@ -975,7 +976,6 @@
     SUBDIR += wavelib
     SUBDIR += wcalc
     SUBDIR += wfmath
-    SUBDIR += why3
     SUBDIR += wxmaxima
     SUBDIR += xblas
     SUBDIR += xfce4-calculator-plugin

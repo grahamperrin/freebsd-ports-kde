@@ -68,9 +68,6 @@ NVSRC=		nvidia
 .endif
 
 .if ${NVVERSION} >= 358.009
-# Initialize memory allocations to avoid spurious "lock re-initialization"
-# errors.  A little more detail can be found in bug 201340 starting around
-# comment #50.
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-src_nvidia-modeset_nvidia-modeset-freebsd.c
 .endif
 
@@ -101,8 +98,10 @@ EXTRA_PATCHES+=	${WRKDIR}/${p}
 .endfor
 
 post-patch: .SILENT
-# We should support -CURRENT: kill the check
-	${REINPLACE_CMD} -e '24,26d' ${WRKSRC}/src/${NVSRC}/nv-freebsd.h
+# We should support -CURRENT: kill the check (first #if __FreeBSD_version)
+	linenum=$$(${SED} -ne '/^#if __FreeBSD_version/ {=; q;}' \
+		${WRKSRC}/src/${NVSRC}/nv-freebsd.h) ; ${REINPLACE_CMD} \
+		-e "$$linenum,+2d" ${WRKSRC}/src/${NVSRC}/nv-freebsd.h
 # Adjust Linux headers #include's after FreeBSD src r246085
 	${REINPLACE_CMD} -E '/#include "machine\/\.\.\/linux(32)?\/linux.h"/ \
 		{ x ; s/.*/#include "machine\/..\/..\/compat\/linux\/linux_ioctl.h"/ ; H ; x ; }' \
